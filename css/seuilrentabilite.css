@@ -1,0 +1,15 @@
+#bouton-calcul {
+  text-align: center;
+}
+
+#bouton-calcul button {
+  font-size: 2rem;
+}
+
+.output {
+  background-color: rgb(9, 92, 216);
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  height: 170px;
+}
