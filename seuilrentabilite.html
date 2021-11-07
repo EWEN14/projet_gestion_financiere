@@ -22,25 +22,26 @@
     <h1>Calcul du seuil de rentabilité</h1>
     <p>En volume et en valeur, basé sur les ventes d'un produit unique</p>
 
+    <!-- TODO : retirer les value des inputs en fin de projet -->
     <div class="row mb-2">
       <div class="col-lg-3 col-md-12">
         <label for="ca">Chiffre d'Affaires</label>
-        <input type="number" class="form-control" name="ca" id="ca" aria-describedby="ca" placeholder="ex : 250000">
+        <input type="number" value="200000" class="entree form-control" name="ca" id="ca" aria-describedby="ca" placeholder="ex : 250000">
       </div>
 
       <div class="col-lg-3 col-md-12">
         <label for="cf">Charges Fixes</label>
-        <input type="number" class="form-control" name="cf" id="cf" aria-describedby="cf" placeholder="ex : 30000">
+        <input type="number" value="30000" class="entree form-control" name="cf" id="cf" aria-describedby="cf" placeholder="ex : 30000">
       </div>
 
       <div class="col-lg-3 col-md-12">
         <label for="cf">Charges Variables</label>
-        <input type="number" class="form-control" name="cv" id="cv" aria-describedby="cv" placeholder="ex : 100000">
+        <input type="number" value="50000" class="entree form-control" name="cv" id="cv" aria-describedby="cv" placeholder="ex : 100000">
       </div>
 
       <div class="col-lg-3 col-md-12">
         <label for="pvht">Prix de Vente HT du produit</label>
-        <input type="number" class="form-control" name="pvht" id="pvht" aria-describedby="pvht" placeholder="ex : 4000">
+        <input type="number" value="4000" class="entree form-control" name="pvht" id="pvht" aria-describedby="pvht" placeholder="ex : 4000">
       </div>
     </div>
 
@@ -49,33 +50,37 @@
     </div>
 
     <div class="row">
-      <div class="col-lg-3 col-md-6" id="resultat-container">
+      <div class="col-lg-3 col-md-6 mb-2" id="resultat-container">
         <div class="output">
           <div class="titre">Résultat</div>
-          <div id="resultat"></div>
+          <div class="result-number" id="resultat"></div>
         </div>
       </div>
 
-      <div class="col-lg-3 col-md-6" id="tauxmarge-container">
+      <div class="col-lg-3 col-md-6 mb-2" id="tauxmarge-container">
         <div class="output">
           <div class="titre">Taux de marge sur coût variable</div>
-          <div id="tauxmarge"></div>
+          <div class="result-number" id="tauxmarge"></div>
         </div>
       </div>
 
-      <div class="col-lg-3 col-md-6" id="seuilValeur-container">
+      <div class="col-lg-3 col-md-6 mb-2" id="seuilValeur-container">
         <div class="output">
           <div class="titre">Seuil de rentabilité en valeur</div>
-          <div id="seuilvaleur"></div>
+          <div class="result-number" id="seuilvaleur"></div>
         </div>
       </div>
 
-      <div class="col-lg-3 col-md-6" id="seuilVolume-container">
+      <div class="col-lg-3 col-md-6 mb-2" id="seuilVolume-container">
         <div class="output">
           <div class="titre">Seuil de rentabilité en volume</div>
-          <div id="seuilvolume"></div>
+          <div class="result-number" id="seuilvolume"></div>
         </div>
       </div>
+    </div>
+
+    <div class="my-3" id="bouton-sauvegarde">
+      <button type="submit" class="btn btn-success" id="sauvegarder">Sauvegarder ce calcul 💾</button>
     </div>
 
   </div>
