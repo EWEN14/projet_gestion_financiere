@@ -26,26 +26,30 @@
     <div class="row mb-2">
       <div class="col-lg-3 col-md-12">
         <label for="ca">Chiffre d'Affaires</label>
-        <input type="number" value="200000" class="entree form-control" name="ca" id="ca" aria-describedby="ca" placeholder="ex : 250000">
+        <input type="number" value="200000" class="entree form-control" name="ca" id="ca" aria-describedby="ca"
+          placeholder="ex : 250000">
       </div>
 
       <div class="col-lg-3 col-md-12">
         <label for="cf">Charges Fixes</label>
-        <input type="number" value="30000" class="entree form-control" name="cf" id="cf" aria-describedby="cf" placeholder="ex : 30000">
+        <input type="number" value="30000" class="entree form-control" name="cf" id="cf" aria-describedby="cf"
+          placeholder="ex : 30000">
       </div>
 
       <div class="col-lg-3 col-md-12">
         <label for="cf">Charges Variables</label>
-        <input type="number" value="50000" class="entree form-control" name="cv" id="cv" aria-describedby="cv" placeholder="ex : 100000">
+        <input type="number" value="50000" class="entree form-control" name="cv" id="cv" aria-describedby="cv"
+          placeholder="ex : 100000">
       </div>
 
       <div class="col-lg-3 col-md-12">
         <label for="pvht">Prix de Vente HT du produit</label>
-        <input type="number" value="4000" class="entree form-control" name="pvht" id="pvht" aria-describedby="pvht" placeholder="ex : 4000">
+        <input type="number" value="4000" class="entree form-control" name="pvht" id="pvht" aria-describedby="pvht"
+          placeholder="ex : 4000">
       </div>
     </div>
 
-    <div class="my-3" id="bouton-calcul">
+    <div class="my-3" id="bouton-calcul" title="Procéder au calcul.">
       <button type="submit" class="btn btn-primary" id="calculer">Calculer 🖩</button>
     </div>
 
@@ -79,9 +83,17 @@
       </div>
     </div>
 
-    <div class="my-3" id="bouton-sauvegarde">
-      <button type="submit" class="btn btn-success" id="sauvegarder">Sauvegarder ce calcul 💾</button>
+    <div class="my-3 disabled" id="bouton-sauvegarde">
+      <button type="submit" class="btn btn-success disabled" id="sauvegarder">
+        Sauvegarder ce calcul 💾
+      </button>
     </div>
+
+    <h2>Précédents calculs</h2>
+
+    <p>Vous trouverez ici les précédents calculs effectuées sur l'application (du plus récent au plus ancien)</p>
+
+    <p style="font-style: italic;">Insert text here X)</p>
 
   </div>
 

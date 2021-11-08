@@ -1,9 +1,16 @@
-let tabResult = [];
+// objet qui contiendra les données qui seront potentiellement sauvegardée
+let objectResult;
+
+// j'initialise les éléments à -1 pour qu'il ne soient pas considérés comme null
 let ca = -1;
 let cf = -1;
 let cv = -1;
 let pvht = -1;
 
+// variable qui indique si le calcul a été sauvegardé ou non
+let alreadySaved = false;
+
+// Au clic sur le bouton calculer
 $('#calculer').on('click', function () {
 
   // on ne peut pas recalculer tant qu'on n'a pas changé au moins une des quatre valeurs d'entrée
@@ -34,8 +41,8 @@ $('#calculer').on('click', function () {
         "opacity": "1"
       });
 
-      // on pousse les données d'entrée et de sortie dans un tableau
-      let objectResult = {
+      // on pousse les données d'entrée et de sortie dans un objet
+      objectResult = {
         ca: parseFloat(ca),
         cf: parseFloat(cf),
         cv: parseFloat(cf),
@@ -47,7 +54,15 @@ $('#calculer').on('click', function () {
       }
       console.log(objectResult);
 
+      // On désactive le bouton de calcul, qui se réactivera quand une valeur aura été changée
       $('#calculer').addClass("disabled");
+      $('#bouton-calcul').addClass("disabled");
+      $('#bouton-calcul').attr("title", "Veuillez changer une valeur pour pouvoir procéder à un nouveau calcul.");
+
+      // On active le bouton de sauvarde
+      $('#sauvegarder').removeClass("disabled");
+      $('#bouton-sauvegarde').removeClass("disabled");
+      $('#bouton-sauvegarde').attr("title","");
     } else {
       alert('Veuillez remplir tous les champs pour pouvoir procéder au calcul.');
     }
@@ -80,19 +95,33 @@ function calculSeuilVolume(ca, cf, cv, pvht) {
   return seuilVolume;
 }
 
-
+// lorsque l'on tape une nouvelle données dans un des inputs, on vérifie qu'elle est bien différente à la précédente
 $(".entree").on('input', function () {
   if (ca != $('#ca').val() || cf != $('#cf').val() || cv != $('#cv').val() || pvht != $('#pvht').val()) {
-    $('#sauvegarder').removeClass("disabled");
+    // si bien différent, on active de nouveau les boutons de calculs
     $('#calculer').removeClass("disabled");
+    $('#bouton-calcul').removeClass("disabled");
+    $('#bouton-calcul').attr("title", "Procéder au calcul.");
   } else {
-    $('#sauvegarder').addClass("disabled");
+    // sinon on les désactive de nouveau
     $('#calculer').addClass("disabled");
+    $('#bouton-calcul').attr("title", "Veuillez changer une valeur pour pouvoir procéder à un nouveau calcul.");
+    // on ne désactive le bouton de sauvegarde que si on a déjà sauvegardé le calcul
+    if (alreadySaved) {
+      $('bouton-sauvegarde').addClass("disabled");
+      $('#sauvegarder').addClass("disabled");
+    }
   }
 });
 
 $('#sauvegarder').on('click', function () {
   appelAjax(objectResult);
+
+  // lorsqu'on sauvegarde, on désactive le bouton de sauvegarde tant que l'on ne tape pas de nouvelles valeurs
+  alreadySaved = true;
+  $('#sauvegarder').addClass("disabled");
+  $('#bouton-sauvegarde').addClass("disabled");
+  $('#bouton-sauvegarde').attr("title","Veuillez effectuer un autre calcul pour pouvoir le sauvegarder.");
 });
 
 function appelAjax(objectResult) {
@@ -121,6 +150,4 @@ function appelAjax(objectResult) {
       // à retirer à la fin
       console.log("The request is complete!");
     });*/
-
-  $('#sauvegarder').addClass("disabled");
 }

@@ -1,5 +1,14 @@
 #bouton-calcul, #bouton-sauvegarde {
   text-align: center;
+  margin: auto;
+}
+
+#bouton-calcul {
+  width: 200px;
+}
+
+#bouton-sauvegarde {
+  width: 400px;
 }
 
 #bouton-calcul button, #bouton-sauvegarde button {
