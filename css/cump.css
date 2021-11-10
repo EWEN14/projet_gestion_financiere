@@ -1,0 +1,24 @@
+table {
+  text-align: center;
+}
+
+table input {
+  max-width: 100px;
+}
+
+.ajout td {
+  background-color: rgba(0, 0, 0, 0) !important;
+  border: none !important;
+  color: rgb(0, 183, 255);
+}
+
+.ajout .new:hover, .valider:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.valider {
+  color: #00f81f;;
+}
+
+

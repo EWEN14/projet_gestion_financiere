@@ -1,4 +1,5 @@
 @import 'seuilrentabilite.css';
+@import 'cump.css';
 
 * {
   transition: all 0.5s;
