@@ -39,11 +39,7 @@ let editOn = true;
 // variable qui permet de définir quelle type d'entrée est saisie (stock initial, entrée ou sortie)
 saisieEnCours = saisie.STOCKINITIAL;
 
-
-// faire un sorte de système qui en fonction du type de saisie va recalculer ce qu'on a en stock
-// et le CU si entrée.
-// penser à un éventuel système de modification et de suppression (en fonction du temps)
-
+// Action qui se déclenche lorsque l'on va cliquer sur le bouton valider d'une ligne
 $('table').on('click', '.valider', function () {
   let quantiteSaisie = $(`#i1_l${index}`).val();
   let coutUnitaireSaisi = "";
@@ -65,7 +61,7 @@ $('table').on('click', '.valider', function () {
         $(`#td3_l1`).text(`${parseInt(quantiteSaisie) * parseFloat(coutUnitaireSaisi)}`);
 
         // On remplace le bouton de validation par un bouton de modification
-        $('#act_l1').html(`<button id="m_${index}" class="btn btn-primary modifier">Modifer</button>`);
+        $('#act_l1').html(`<button id="m_${index}" class="btn btn-primary modifier">✏️</button>`);
 
         // objet représentant la ligne de stock initial créé, que l'on va pousser dans notre tableau
         let stockInitial = {
@@ -109,7 +105,10 @@ $('table').on('click', '.valider', function () {
         $(`#td6_l${index}`).text(`${newMontantStockIn}`);
 
         // On remplace le bouton de validation par un bouton de modification
-        $(`#act_l${index}`).html(`<button id="m_${index}" class="btn btn-primary modifier">Modifer</button>`);
+        $(`#act_l${index}`).html(`
+          <button id="m_${index}" class="btn btn-primary modifier">✏️</button>
+          <button id="s_${index}" class="btn btn-danger supprimer">🗑️</button>`
+        );
 
         // objet représentant la ligne créé, que l'on va pousser dans notre tableau
         let newEntry = {
@@ -203,11 +202,14 @@ $('#new-entree').on('click', function () {
       <td class="align-middle" id="td4_l${index}"></td>
       <td class="align-middle" id="td5_l${index}"></td>
       <td class="align-middle" id="td6_l${index}"></td>
-      <td class="align-middle act" id="act_l${index}"><button class="btn btn-success valider">Valider</button></td>
+      <td class="align-middle act" id="act_l${index}">
+        <button class="btn btn-success valider">✔️</button>
+        <button id="s_${index}" class="btn btn-danger supprimer">🗑️</button>
+      </td>
     </tr>
   `);
   } else {
-    alert('Veuillez finir de compléter la ligne avec des champs de saisie avant créer une nouvelle entrée.');
+    alert('Veuillez finir de compléter la ligne avec des champs de saisie avant de créer une nouvelle entrée.');
   }
 });
 
@@ -227,22 +229,43 @@ $('#new-sortie').on('click', function () {
       <td class="align-middle" id="td4_l${index}"></td>
       <td class="align-middle" id="td5_l${index}">${tabCump[index-1].stkCu}</td>
       <td class="align-middle" id="td6_l${index}"></td>
-      <td class="align-middle act" id="act_l${index}"><button class="btn btn-success valider">Valider</button></td>
+      <td class="align-middle act" id="act_l${index}">
+        <button class="btn btn-success valider">✔️</button>
+        <button id="s_${index}" class="btn btn-danger supprimer">🗑️</button>
+      </td>
     </tr>
   `);
   } else {
-    alert('Veuillez finir de compléter la ligne avec des champs de saisie avant créer une nouvelle sortie.');
+    alert('Veuillez finir de compléter la ligne avec des champs de saisie avant de créer une nouvelle sortie.');
   }
 });
 
 // Pour un élément comme les boutons de confirmation et de validation qui sont générés 
 // par le biais de JQuery, on ne peut agir sur eux qu'à partir d'un parent déjà existant dans le DOM.
+// On doit donc utiliser .on avec ce parent plutôt que de sélectionner directement l'élément généré.
 $('table').on('click', '.modifier', function () {
   console.log('modification....');
   // TODO: implémenter plus tard la modification
 });
 
+// Actions lorsque l'on clique sur le bouton de suppression d'une ligne
 $('table').on('click', '.supprimer', function () {
-  console.log('suppression....');
-  // TODO: implémenter plus tard la suppression
+  // on récupère l'id du bouton de suppression, juste pour avoir le numéro de ligne / l'index 
+  let idRowToDelete = $(this).attr('id');
+  let splitString = idRowToDelete.split('_');
+  let id = splitString[1];
+
+  // On doit prévoir la suppression selon deux cas : si la ligne était en cours d'édition ou non.
+  // Si la ligne n'était pas en cours d'édtion, elle a été validée et on avait placé notre index à +1
+  // La ligne à supprimer est donc à l'index actuel -1 et on doit retirer l'élément correspondant dans
+  // notre tableau d'objets
+  if (!editOn) {
+    $(`#l${index -1}`).remove();
+    tabCump.splice(id, 1);
+    index--;
+  } else {
+    // sinon, on était en cours d'édition, on retire la ligne à l'index actuel et on repasse l'édition à false
+    $(`#l${index}`).remove();
+    editOn = false;
+  }
 });
