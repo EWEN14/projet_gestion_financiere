@@ -33,9 +33,6 @@ let index = 1;
 // pas ajouter une nouvelle entrée ou sortie avant que cette variable passe à false, lorsque la ligne aura été validée
 let editOn = true;
 
-// représente la quantité stockée du produit, TODO: variable peut-être inutile à terme
-// let stockAtuel = 0;
-
 // variable qui permet de définir quelle type d'entrée est saisie (stock initial, entrée ou sortie)
 saisieEnCours = saisie.STOCKINITIAL;
 
@@ -49,11 +46,10 @@ $('table').on('click', '.valider', function () {
   } else { // sinon, on récupère le texte dans la colonne
     coutUnitaireSaisi = $(`#i2_l${index}`).text();
   }
-  
+
   if (quantiteSaisie && coutUnitaireSaisi) {
     switch (saisieEnCours) {
       case saisie.STOCKINITIAL:
-        // stockAtuel = quantiteSaisie;
 
         // On remplace les inputs par le texte contenant les valeurs
         $(`#td1_l1`).text(`${quantiteSaisie}`);
@@ -107,8 +103,7 @@ $('table').on('click', '.valider', function () {
         // On remplace le bouton de validation par un bouton de modification
         $(`#act_l${index}`).html(`
           <button id="m_${index}" class="btn btn-primary modifier">✏️</button>
-          <button id="s_${index}" class="btn btn-danger supprimer">🗑️</button>`
-        );
+          <button id="s_${index}" class="btn btn-danger supprimer">🗑️</button>`);
 
         // objet représentant la ligne créé, que l'on va pousser dans notre tableau
         let newEntry = {
@@ -153,8 +148,7 @@ $('table').on('click', '.valider', function () {
         // On remplace le bouton de validation par un bouton de modification
         $(`#act_l${index}`).html(`
           <button id="m_${index}" class="btn btn-primary modifier">✏️</button>
-          <button id="s_${index}" class="btn btn-danger supprimer">🗑️</button>`
-        );
+          <button id="s_${index}" class="btn btn-danger supprimer">🗑️</button>`);
 
         // objet représentant la ligne créé, que l'on va pousser dans notre tableau
         let newSortie = {
@@ -190,6 +184,9 @@ $('table').on('click', '.valider', function () {
 // des champs de saisies dans les colonnes dédiées.
 $('#new-entree').on('click', function () {
   if (!editOn) {
+    // on retire le bouton de suppression de la ligne précédente.
+    $(`#s_${index - 1}`).remove();
+
     editOn = true;
     saisieEnCours = saisie.ENTREE;
     $('.ajout').before(`
@@ -217,6 +214,9 @@ $('#new-entree').on('click', function () {
 // des champs de saisies dans les colonnes dédiées.
 $('#new-sortie').on('click', function () {
   if (!editOn) {
+    // on retire le bouton de suppression de la ligne précédente.
+    $(`#s_${index - 1}`).remove();
+
     editOn = true;
     saisieEnCours = saisie.SORTIE;
     $('.ajout').before(`
@@ -248,7 +248,7 @@ $('table').on('click', '.modifier', function () {
   // TODO: implémenter plus tard la modification
 });
 
-// Actions lorsque l'on clique sur le bouton de suppression d'une ligne
+// Actions lorsque l'on clique sur le bouton de suppression d'une ligne (seule la dernière peut être supprimée)
 $('table').on('click', '.supprimer', function () {
   // on récupère l'id du bouton de suppression, juste pour avoir le numéro de ligne / l'index 
   let idRowToDelete = $(this).attr('id');
@@ -258,14 +258,25 @@ $('table').on('click', '.supprimer', function () {
   // On doit prévoir la suppression selon deux cas : si la ligne était en cours d'édition ou non.
   // Si la ligne n'était pas en cours d'édtion, elle a été validée et on avait placé notre index à +1
   // La ligne à supprimer est donc à l'index actuel -1 et on doit retirer l'élément correspondant dans
-  // notre tableau d'objets
-  if (!editOn) {
+  // notre tableau d'objets.
+  // En plus de cela, on vérifie que que l'index est cohérent avec la ligne que l'on va supprimer.
+  if (!editOn && id == (index - 1)) {
     $(`#l${index -1}`).remove();
     tabCump.splice(id, 1);
+    // on remet le bouton de suppression à la ligne précédente
+    $(`#m_${index - 2}`).after(`<button id="s_${index - 2}" class="btn btn-danger supprimer">🗑️</button>`)
+    // on réduit l'indes de suppression
     index--;
-  } else {
+  } else if (editOn && id == index) {
     // sinon, on était en cours d'édition, on retire la ligne à l'index actuel et on repasse l'édition à false
     $(`#l${index}`).remove();
     editOn = false;
+    // on remet le bouton de suppression
+    $(`#m_${index -1}`).after(`<button id="s_${index -1}" class="btn btn-danger supprimer">🗑️</button>`)
+
+  } else {
+    // Cas peu probable où l'utilisateur aurait manipulé l'id des boutons de suppression
+    // en modifiant l'HTML via l'inspecteur.
+    alert("Vous avez manipulé manipulé quelque chose que vous n'auriez pas dû... Arrêtez de faire n'importe quoi !")
   }
 });
