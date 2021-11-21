@@ -73,8 +73,7 @@ $('#calculer').on('click', function () {
 
 
 function calculResultat(ca, cf, cv) {
-  let resultat = ca - cf - cv;
-  return resultat;
+  return ca - cf - cv;
 }
 
 function calculTauxMarge(ca, cv) {

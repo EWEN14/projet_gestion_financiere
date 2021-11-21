@@ -49,18 +49,18 @@
         </tr>
 
         <tr id="l1">
-          <td>Stock Initial</td>
+          <td class="align-middle">Stock Initial</td>
           <td colspan="6"></td>
-          <td><input type="number" min="0" name="quantite" placeholder="ex : 100" class="i1_l1"></td>
-          <td><input type="number" min="0" name="coutunitaire" placeholder="ex : 50" class="i2_l2"></td>
-          <td></td>
-          <td class="valider">✔️ Valider</td>
+          <td class="align-middle" id="td1_l1"><input id="i1_l1" type="number" min="0" name="quantite" placeholder="ex : 100" value="100"></td>
+          <td class="align-middle" id="td2_l1"><input id="i2_l1" type="number" min="0" name="coutunitaire" placeholder="ex : 50" value="50"></td>
+          <td class="align-middle" id="td3_l1"></td>
+          <td class="align-middle act" id="act_l1"><button class="btn btn-success valider">✔️</button></td>
         </tr>
         
         <tr class="ajout">
           <td></td>
-          <td class="new" colspan="3">➕ Nouvelle entrée</td>
-          <td class="new" colspan="3">➕ Nouvelle sortie</td>
+          <td class="new" colspan="3"><button class="btn btn-warning" id="new-entree">➕ Nouvelle entrée</button></td>
+          <td class="new" colspan="3"><button class="btn btn-warning" id="new-sortie">➕ Nouvelle sortie</button></td>
           <td></td>
           <td></td>
           <td></td>
