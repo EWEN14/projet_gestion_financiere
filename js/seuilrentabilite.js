@@ -45,7 +45,7 @@ $('#calculer').on('click', function () {
       objectResult = {
         ca: parseFloat(ca),
         cf: parseFloat(cf),
-        cv: parseFloat(cf),
+        cv: parseFloat(cv),
         pvht: parseFloat(pvht),
         resultat: resultat,
         taux_marge: tauxMarge,
@@ -127,8 +127,8 @@ function appelAjax(objectResult) {
   const objectResultJson = JSON.stringify(objectResult);
   console.log(objectResultJson);
 
-  /*$.ajax({
-      url: 'php/seuilrentabilite.php', // script qui va faire la requête
+  $.ajax({
+      url: 'php/saveSeuil.php', // script qui va faire la requête
       data: {
         code: objectResultJson // JSON que l'on passe au script PHP
       },
@@ -148,5 +148,5 @@ function appelAjax(objectResult) {
     .always(function (xhr, status) {
       // à retirer à la fin
       console.log("The request is complete!");
-    });*/
+    });
 }

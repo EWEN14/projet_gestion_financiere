@@ -44,3 +44,9 @@ function dateDuJour():String {
   }
   return $date;
 }
+
+function intToFloat($entier): float
+{
+    $doubleString = number_format((double)$entier, 2, '.', '');
+    return floatval($doubleString);
+}

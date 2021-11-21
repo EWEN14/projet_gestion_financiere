@@ -16,7 +16,7 @@ class SeuilDeRentatibilite
         return $this->chiffreAffaire;
     }
 
-    public function setChiffreAffaire(double $nouveauCA = 0.0)
+    public function setChiffreAffaire($nouveauCA)
     {
         $this->chiffreAffaire = $nouveauCA;
     }
@@ -26,7 +26,7 @@ class SeuilDeRentatibilite
         return $this->coutFixe;
     }
 
-    public function setCoutFixe(Double $nouveauCoutFixe = 0.0)
+    public function setCoutFixe($nouveauCoutFixe)
     {
         $this->coutFixe = $nouveauCoutFixe;
     }
@@ -36,7 +36,7 @@ class SeuilDeRentatibilite
         return $this->coutvariable;
     }
 
-    public function setCoutVariable(Double $nouveauCoutVariable = 0.0)
+    public function setCoutVariable($nouveauCoutVariable)
     {
         $this->coutvariable = $nouveauCoutVariable;
     }
@@ -46,7 +46,7 @@ class SeuilDeRentatibilite
         return $this->prixVenteHorsTaxe;
     }
 
-    public function setPrixVenteHorsTaxe(Double $nouveauPrixVenteHorsTaxe = 0.0)
+    public function setPrixVenteHorsTaxe($nouveauPrixVenteHorsTaxe)
     {
         $this->prixVenteHorsTaxe = $nouveauPrixVenteHorsTaxe;
     }
@@ -56,7 +56,7 @@ class SeuilDeRentatibilite
         return $this->resultat;
     }
 
-    public function setResultat(Double $nouveauResultat = 0.0)
+    public function setResultat($nouveauResultat)
     {
         $this->resultat = $nouveauResultat;
     }
@@ -66,7 +66,7 @@ class SeuilDeRentatibilite
         return $this->tauxMarge;
     }
 
-    public function setTauxMarge(Double $nouveauTauxMarge = 0.0)
+    public function setTauxMarge($nouveauTauxMarge)
     {
         $this->tauxMarge = $nouveauTauxMarge;
     }
@@ -76,7 +76,7 @@ class SeuilDeRentatibilite
         return $this->seuilValeur;
     }
 
-    public function setSeuilValeur(Double $nouveauSeuilValeur = 0.0)
+    public function setSeuilValeur($nouveauSeuilValeur)
     {
         $this->seuilValeur = $nouveauSeuilValeur;
     }
@@ -86,7 +86,7 @@ class SeuilDeRentatibilite
         return $this->seuilVolume;
     }
 
-    public function setSeuilVolume(Double $nouveauSeuilVolume = 0.0)
+    public function setSeuilVolume($nouveauSeuilVolume)
     {
         $this->seuilVolume = $nouveauSeuilVolume;
     }

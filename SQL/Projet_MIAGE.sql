@@ -7,7 +7,7 @@ CREATE TABLE users (
     user_name varchar(50),
     user_password varchar(255),
     user_registerDate datetime,
-    user_admin tinyint default(0)
+    user_admin tinyint DEFAULT 0
 );
 
 CREATE TABLE seuil_renta_php (

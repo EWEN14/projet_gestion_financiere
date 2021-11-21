@@ -38,6 +38,7 @@ class Database{
     } catch (PDOException $pe) {
       echo 'ERREUR : '.$pe->getMessage();
     }
+    return new Users(); // jamais atteint normalement
   }
 
   public function createUser($username, $password){
