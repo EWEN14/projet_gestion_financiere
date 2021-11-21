@@ -1,6 +1,7 @@
 <?PHP
-require 'user.php';
-require_once 'utils.php';
+require 'class\utilisateur\user.php';
+require_once 'functions\utils.php';
+
 class Database{
   private $_PDO;
   private $DB_DSN = 'mysql:host=localhost;dbname=mejk_php';

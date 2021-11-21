@@ -1,6 +1,7 @@
 <?php
-  require 'utils.php';
-  require 'DataBase.php';
+  require 'functions\utils.php';
+  require 'data\DataBase.php';
+  
   init_session();
   if (isset($_POST['valid'])) {
     if (isset($_POST['form_username']) && !empty($_POST['form_username']) &&
@@ -8,8 +9,9 @@
         isset($_POST['form_verifPassword']) && !empty($_POST['form_verifPassword']) &&
         $_POST['form_verifPassword'] == $_POST['form_password']) {
       $username = $_POST['form_username'];
-      $password = password_hash($_POST['form_password'], PASSWORD_BCRYPT);
+      $password = password_hash($_POST['form_password'], PASSWORD_DEFAULT);
       $requete = new DataBase();
+      echo $password;
       $requete->createUser(htmlspecialchars($username), $password);
       header('Location:index.php');
     }else {

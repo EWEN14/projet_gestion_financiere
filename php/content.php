@@ -1,5 +1,5 @@
 <?php
-  require 'utils.php';
+  require 'functions\utils.php';
   init_session();
  ?>
 

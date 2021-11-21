@@ -1,6 +1,6 @@
 <?php
-  require 'utils.php';
-  require 'DataBase.php';
+  require 'functions\utils.php';
+  require 'data\DataBase.php';
   init_session();
 
   if (isset($_GET['action']) && !empty($_GET['action']) && $_GET['action'] == 'logout') {
@@ -19,6 +19,7 @@
       if (password_verify($password, $verifUser->getPassword())) {
         $_SESSION['username'] = $username;
         $_SESSION['rank'] = $verifUser->getAdmin();
+        header('Location: content.php');
       }else {
         echo 'Identifiant ou mot de passe incorrect';
       }
