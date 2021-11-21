@@ -59,7 +59,9 @@
       <ul>
         <li>
           <a href="index.php">Acceuil</a>
-          <a href="content.php">Page</a>
+          <?php if(is_logged()) : ?>
+            <a href="content.php">Page</a>
+          <?php endif ?>
         </li>
       </ul>
     </nav>
