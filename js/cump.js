@@ -264,15 +264,15 @@ $('table').on('click', '.supprimer', function () {
     $(`#l${index -1}`).remove();
     tabCump.splice(id, 1);
     // on remet le bouton de suppression à la ligne précédente
-    $(`#m_${index - 2}`).after(`<button id="s_${index - 2}" class="btn btn-danger supprimer">🗑️</button>`)
-    // on réduit l'indes de suppression
+    $(`#m_${index - 2}`).after(`<button id="s_${index - 2}" class="btn btn-danger supprimer" style="margin-left: 5px;">🗑️</button>`)
+    // on réduit l'index de suppression
     index--;
   } else if (editOn && id == index) {
     // sinon, on était en cours d'édition, on retire la ligne à l'index actuel et on repasse l'édition à false
     $(`#l${index}`).remove();
     editOn = false;
     // on remet le bouton de suppression
-    $(`#m_${index -1}`).after(`<button id="s_${index -1}" class="btn btn-danger supprimer">🗑️</button>`)
+    $(`#m_${index -1}`).after(`<button id="s_${index -1}" class="btn btn-danger supprimer" style="margin-left: 5px;">🗑️</button>`)
 
   } else {
     // Cas peu probable où l'utilisateur aurait manipulé l'id des boutons de suppression
