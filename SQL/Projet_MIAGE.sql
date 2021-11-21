@@ -33,10 +33,3 @@ CREATE USER 'agent1'@'localhost' IDENTIFIED BY 'miage';
 -- Accord de tous les droits sur la base de données.
 GRANT ALL PRIVILEGES ON mejk_php.* TO 'agent1'@'localhost';
 FLUSH PRIVILEGES;
-
-INSERT INTO users (user_name,user_password,user_registerDate,user_admin) VALUES('Mathilde','$2y$10$y/GNmcpEldQdQO9BX1Pp3.ZwKr39HL72c99rgVBOzG91eUqrd/trq',now(),1);
-
-
-
-SELECT *
-FROM users;
