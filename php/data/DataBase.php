@@ -1,6 +1,7 @@
 <?PHP
-require 'class\utilisateur\user.php';
+require_once 'class\utilisateur\user.php';
 require_once 'functions\utils.php';
+require_once 'class\gestion\seuil.php';
 
 class Database{
   private $_PDO;
@@ -21,24 +22,6 @@ class Database{
       }catch (PDOException $pe) {
         echo 'ERREUR : '.$pe->getMessage();
       }
-  }
-
-  public function getUser($name,$password):Users{
-    try {
-      $users = new ArrayObject();
-      $req = $this->_PDO->prepare('SELECT * FROM users WHERE user_name=:name AND user_password=:pwd');
-      $req->bindParam(1, $name);
-      $req->bindParam(2, $password);
-      $req->execute();
-      $value = $req->fetch(PDO::FETCH_OBJ);
-      $utilisateur = new Users();
-      $utilisateur->setName($value->user_name);
-      $utilisateur->setPassword($value->user_password);
-      $utilisateur->setAdmin($value->user_admin);
-      return $utilisateur;
-    } catch (PDOException $pe) {
-      echo 'ERREUR : '.$pe->getMessage();
-    }
   }
 
   public function getUserName($name):Users{
@@ -63,6 +46,25 @@ class Database{
       $requeteSQL = 'INSERT INTO users (user_name,user_password,user_registerDate,user_admin) VALUES("'.$username.'","'.$password.'",now(),0)';
       $req = $this->_PDO->prepare($requeteSQL);
       $req->execute();
+    } catch (PDOException $pe) {
+      echo 'ERREUR : '.$pe->getMessage();
+    }
+  }
+
+  public function sauvegardeCalcul(SeuilDeRentatibilite $seuil,$userID){
+    if(!empty($seuil) && isset($seuil) && !empty($userID) && isset($userID)){
+      try {
+        $req = $this->_PDO->prepare('INSERT INTO seuil_renta_php (chiffre_affaire, cout_fixe, cout_variable, prix_vente_hors_taxe, seuil_resultat, taux_marge,seuil_valeur, seuil_volume, user_id) VALUES("'.$seuil->getChiffreAffaire().'","'.$seuil->getCoutFixe().'","'.$seuil->getCoutVariable().'","'.$seuil->getPrixVenteHorsTaxe().'","'.$seuil->getResultat().'","'.$seuil->getTauxMarge().'","'.$seuil->getSeuilValeur().'","'.$seuil->getSeuilVolume().'","'.$userID.'")');
+        $req->execute();
+      } catch (PDOException $pe) {
+        echo 'ERREUR : '.$pe->getMessage();
+      }
+    }
+  }
+
+  public function modifMDP($newMDP,$userID){
+    try {
+      $req = $this->_PDO->prepare('UPDATE users SET user_password = '.$newMDP.' WHERE user_name = "'.$userID.'"');
     } catch (PDOException $pe) {
       echo 'ERREUR : '.$pe->getMessage();
     }
