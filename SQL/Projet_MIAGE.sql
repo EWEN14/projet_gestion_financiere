@@ -10,6 +10,24 @@ CREATE TABLE users (
     user_admin tinyint default(0)
 );
 
+CREATE TABLE seuil_renta_php (
+	id int primary key auto_increment,
+    chiffre_affaire double,
+    cout_fixe double,
+    cout_variable double,
+    prix_vente_hors_taxe double,
+    seuil_resultat double,
+    taux_marge double,
+    seuil_valeur double,
+    seuil_volume double,
+	user_id int,
+    CONSTRAINT fk_user
+    FOREIGN KEY (user_id) 
+    REFERENCES users(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+
 CREATE USER 'agent1'@'localhost' IDENTIFIED BY 'miage';
 
 -- Accord de tous les droits sur la base de données.
@@ -18,7 +36,6 @@ FLUSH PRIVILEGES;
 
 INSERT INTO users (user_name,user_password,user_registerDate,user_admin) VALUES('Mathilde','$2y$10$y/GNmcpEldQdQO9BX1Pp3.ZwKr39HL72c99rgVBOzG91eUqrd/trq',now(),1);
 
--- INSERT INTO users (user_name,user_password,user_registerDate,user_admin) VALUES('Kevin','$2y$10$xQl.BhHBJrrDNDPYJMDg4.z/yjLPHP.FyytoDSFnBMB/aUuk5z05O',now(),0);
 
 
 SELECT *
