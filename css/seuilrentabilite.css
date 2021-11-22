@@ -42,3 +42,9 @@
   right:0;
   margin: auto;
 }
+
+.saved-calcul {
+  background-color: rgba(0,0,0,0.8);
+  margin-bottom: 5px;
+  border-radius: 5px;
+}

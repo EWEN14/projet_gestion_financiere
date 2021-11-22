@@ -128,6 +128,11 @@ $('table').on('click', '.valider', function () {
         break;
 
       case saisie.SORTIE:
+        if (parseInt(quantiteSaisie) > tabCump[index - 1].stkQ) {
+          alert("Vous ne pouvez sortir plus de produits qu'il n'y en a en stock !");
+          break;
+        }
+
         // On remplace l'inuput de quantié par le texte contenant les valeur
         $(`#td1_l${index}`).text(`${quantiteSaisie}`);
 
@@ -223,11 +228,11 @@ $('#new-sortie').on('click', function () {
     <tr id="l${index}">
       <td class="align-middle">Entrée</td>
       <td colspan="3"></td>
-      <td class="align-middle" id="td1_l${index}"><input id="i1_l${index}" type="number" min="0" max="${tabCump[index-1].stkQ}" name="quantite" placeholder="max: ${tabCump[index-1].stkQ}"></td>
-      <td class="align-middle" id="td2_l${index}"><span id="i2_l${index}">${tabCump[index-1].stkCu}</span></td>
+      <td class="align-middle" id="td1_l${index}"><input id="i1_l${index}" type="number" min="0" max="${tabCump[index - 1].stkQ}" name="quantite" placeholder="max: ${tabCump[index - 1].stkQ}"></td>
+      <td class="align-middle" id="td2_l${index}"><span id="i2_l${index}">${tabCump[index - 1].stkCu}</span></td>
       <td class="align-middle" id="td3_l${index}"></td>
       <td class="align-middle" id="td4_l${index}"></td>
-      <td class="align-middle" id="td5_l${index}">${tabCump[index-1].stkCu}</td>
+      <td class="align-middle" id="td5_l${index}">${tabCump[index - 1].stkCu}</td>
       <td class="align-middle" id="td6_l${index}"></td>
       <td class="align-middle act" id="act_l${index}">
         <button class="btn btn-success valider">✔️</button>
@@ -261,7 +266,7 @@ $('table').on('click', '.supprimer', function () {
   // notre tableau d'objets.
   // En plus de cela, on vérifie que que l'index est cohérent avec la ligne que l'on va supprimer.
   if (!editOn && id == (index - 1)) {
-    $(`#l${index -1}`).remove();
+    $(`#l${index - 1}`).remove();
     tabCump.splice(id, 1);
     // on remet le bouton de suppression à la ligne précédente
     $(`#m_${index - 2}`).after(`<button id="s_${index - 2}" class="btn btn-danger supprimer" style="margin-left: 5px;">🗑️</button>`)
@@ -272,7 +277,7 @@ $('table').on('click', '.supprimer', function () {
     $(`#l${index}`).remove();
     editOn = false;
     // on remet le bouton de suppression
-    $(`#m_${index -1}`).after(`<button id="s_${index -1}" class="btn btn-danger supprimer" style="margin-left: 5px;">🗑️</button>`)
+    $(`#m_${index - 1}`).after(`<button id="s_${index - 1}" class="btn btn-danger supprimer" style="margin-left: 5px;">🗑️</button>`)
 
   } else {
     // Cas peu probable où l'utilisateur aurait manipulé l'id des boutons de suppression

@@ -5,20 +5,20 @@ require_once './data/DataBase.php';
 require_once './class/gestion/seuil.php';
 
 if (isset($_POST['code'])) {
-    $data = json_decode(stripslashes($_POST['code']), true);
+  $data = json_decode(stripslashes($_POST['code']), true);
 
-    $base = new Database();
+  $base = new Database();
 
-    $seuil = new SeuilDeRentatibilite();
-    $seuil->setChiffreAffaire(intToFloat($data["ca"]));
-    $seuil->setCoutFixe(intToFloat($data["cf"]));
-    $seuil->setCoutVariable(intToFloat($data["cv"]));
-    $seuil->setPrixVenteHorsTaxe(intToFloat($data["pvht"]));
-    $seuil->setResultat(intToFloat($data["resultat"]));
-    $seuil->setTauxMarge(intToFloat($data["taux_marge"]));
-    $seuil->setSeuilValeur(intToFloat($data["seuil_valeur"]));
-    $seuil->setSeuilVolume(intToFloat($data["seuil_volume"]));
+  $seuil = new SeuilDeRentatibilite();
+  $seuil->setChiffreAffaire(intToFloat($data["ca"]));
+  $seuil->setCoutFixe(intToFloat($data["cf"]));
+  $seuil->setCoutVariable(intToFloat($data["cv"]));
+  $seuil->setPrixVenteHorsTaxe(intToFloat($data["pvht"]));
+  $seuil->setResultat(intToFloat($data["resultat"]));
+  $seuil->setTauxMarge(intToFloat($data["taux_marge"]));
+  $seuil->setSeuilValeur(intToFloat($data["seuil_valeur"]));
+  $seuil->setSeuilVolume(intToFloat($data["seuil_volume"]));
 
-    $base->sauvegardeCalcul($seuil, 1);
+  $base->sauvegardeCalcul($seuil, 1);
 }
 

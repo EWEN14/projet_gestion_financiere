@@ -10,6 +10,9 @@ let pvht = -1;
 // variable qui indique si le calcul a été sauvegardé ou non
 let alreadySaved = false;
 
+// récupération des calculs sauvegardés de l'utilisateur.
+appelAjaxRecup();
+
 // Au clic sur le bouton calculer
 $('#calculer').on('click', function () {
 
@@ -62,7 +65,7 @@ $('#calculer').on('click', function () {
       // On active le bouton de sauvarde
       $('#sauvegarder').removeClass("disabled");
       $('#bouton-sauvegarde').removeClass("disabled");
-      $('#bouton-sauvegarde').attr("title","");
+      $('#bouton-sauvegarde').attr("title", "");
     } else {
       alert('Veuillez remplir tous les champs pour pouvoir procéder au calcul.');
     }
@@ -114,30 +117,75 @@ $(".entree").on('input', function () {
 });
 
 $('#sauvegarder').on('click', function () {
-  appelAjax(objectResult);
+  appelAjaxSave(objectResult);
 
   // lorsqu'on sauvegarde, on désactive le bouton de sauvegarde tant que l'on ne tape pas de nouvelles valeurs
   alreadySaved = true;
   $('#sauvegarder').addClass("disabled");
   $('#bouton-sauvegarde').addClass("disabled");
-  $('#bouton-sauvegarde').attr("title","Veuillez effectuer un autre calcul pour pouvoir le sauvegarder.");
+  $('#bouton-sauvegarde').attr("title", "Veuillez effectuer un autre calcul pour pouvoir le sauvegarder.");
 });
 
-function appelAjax(objectResult) {
+function appelAjaxSave(objectResult) {
   const objectResultJson = JSON.stringify(objectResult);
   console.log(objectResultJson);
 
   $.ajax({
-      url: 'php/saveSeuil.php', // script qui va faire la requête
-      data: {
-        code: objectResultJson // JSON que l'on passe au script PHP
-      },
-      type: 'POST',
-      dataType: 'text'
-    })
+    url: 'php/saveSeuil.php', // script qui va faire la requête
+    data: {
+      code: objectResultJson // JSON que l'on passe au script PHP
+    },
+    type: 'POST',
+    dataType: 'text'
+  })
     .done(function (text) {
-		  alert("Calcul sauvegardé ✔️");
+      alert("Calcul sauvegardé ✔️");
+      appelAjaxRecup();
       console.log(text); //pour voir les erreurs
+    })
+    .fail(function (xhr, status, errorThrown) {
+      alert("Sorry, there was a problem!");
+      console.log("Error: " + errorThrown);
+      console.log("Status: " + status);
+      console.dir(xhr);
+    })
+    .always(function (xhr, status) {
+      // à retirer à la fin
+      console.log("The request is complete!");
+    });
+}
+
+function appelAjaxRecup() {
+  $.ajax({
+    url: 'php/getSavedSeuil.php', // script qui va faire la requête
+    type: 'GET',
+    dataType: 'json'
+  })
+    .done(function (json) {
+      // alert("Calcul sauvegardé ✔️");
+      if (json === "nothing") {
+        $(".saved-calculs").prepend("<p class='no-save'>Aucun Calcul Sauvegardé</p>");
+      } else {
+        console.log(json);
+
+        $(".saved-calcul").remove();
+        $(".no-save").remove();
+
+        for (const element in json) {
+          $(".saved-calculs").prepend(
+            `<div>
+                chiffre d'affaires : ${json[element].chiffre_affaire},  
+                coût fixes : ${json[element].cout_fixe},  
+                coût variables : ${json[element].cout_variable},  
+                prix de vente hors taxe : ${json[element].prix_vente_hors_taxe},  
+                résultat : ${json[element].seuil_resultat},  
+                taux marge : ${json[element].taux_marge},  
+                seuil de rentabilité en valeur : ${json[element].seuil_valeur},  
+                seuil de rentabilité en volume : ${json[element].seuil_volume}</div>`
+          );
+        }
+        $(".saved-calculs").children('div').addClass("saved-calcul");
+      }
     })
     .fail(function (xhr, status, errorThrown) {
       alert("Sorry, there was a problem!");
