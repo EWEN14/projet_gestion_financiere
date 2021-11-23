@@ -1,50 +1,7 @@
-#bouton-calcul, #bouton-sauvegarde {
-  text-align: center;
-  margin: auto;
-}
-
-#bouton-calcul {
-  width: 200px;
-}
-
-#bouton-sauvegarde {
-  width: 400px;
-}
-
-#bouton-calcul button, #bouton-sauvegarde button {
-  font-size: 2rem;
-}
-
-.output {
-  background-color: rgb(9, 92, 216);
-  border-radius: 15px;
-  color: white;
-  text-align: center;
-  height: 145px;
-  position: relative;
-}
-
-.result-number{
-  opacity: 0;
-  font-size: 3rem;
-}
-
-.titre {
-  font-size: 1.3rem;
-  padding-top: 15px;
-}
-
-.unite {
-  font-size: 1rem;
-  position: absolute;
-  bottom: 10px;
-  left:0;
-  right:0;
-  margin: auto;
-}
-
 .saved-calcul {
-  background-color: rgba(0,0,0,0.8);
-  margin-bottom: 5px;
-  border-radius: 5px;
+  background-color: rgb(179 98 66);
+    color: white;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
 }

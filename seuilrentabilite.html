@@ -2,127 +2,135 @@
 <html lang="fr">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Calcul du seuil de rentabilité en valeur et en volume.">
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Calcul du seuil de rentabilité en valeur et en volume.">
 
+	<title>Seuil de Rentabilité</title>
 
+	<!-- Bootstrap core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+	<link href="css/seuilrentabilite.css" rel="stylesheet">
 
-  <title>Seuil de Rentabilité</title>
-  
-  
-    <!-- Bootstrap core CSS -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/icons/font/bootstrap-icons.css" rel="stylesheet">
-	
 	<!-- Bootstrap core JS -->
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/bootstrap.bundle.min.js"></script>
-		<script src="js/jquery-3.6.0.min.js"></script>
-    
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+		integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+	</script>
+	<script src="js/jquery-3.6.0.min.js"></script>
+
 	<!-- Chargement du menu général -->
-	<script> 
-		$(function(){
-		  $("#menu").load("menu.html"); 
+	<script>
+		$(function () {
+			$("#menu").load("menu.html");
 		});
-    </script> 
+	</script>
 </head>
 
 <body>
-  <div id="menu" class="container"></div>
-  
-  <h2 class="text-center text-secondary">Seuil de rentabilité</h2>
-  <p class="text-center text-secondary">Calcul du seuil de rentabilité, en valeur et en volume.</p>
-  
-  <div class="container">
-	<nav>
-	  <ul class="nav nav-tabs">
-	    <li class="nav-item"><a class="nav-link active" aria-current="page" href="seuilrentabilite">Seuil de Rentabilité</a></li>
-		<li class="nav-item"><a class="nav-link" href="#">Sauvegarde</a></li>	
-	  </ul>
-	</nav>
+	<div id="menu" class="container"></div>
+
+	<h2 class="text-center text-secondary">Seuil de rentabilité</h2>
+	<p class="text-center text-secondary">Calcul du seuil de rentabilité, en valeur et en volume.</p>
+
+	<div class="container">
+		<nav>
+			<ul class="nav nav-tabs">
+				<li class="nav-item"><a class="nav-link active" aria-current="page" href="seuilrentabilite">Seuil de
+						Rentabilité</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Sauvegarde</a></li>
+			</ul>
+		</nav>
 
 		<!-- TODO : retirer les value des inputs en fin de projet -->
 		<table class="table table-hover table-sm align-middle table-responsive-sm">
 			<thead>
-			  <tr>
-				<th scope="col"></th>
-				<th class="text-center text-secondary" scope="col">Formule</th>
-				<th class="text-center text-secondary" scope="col">Calcul</th>
-			  </tr>
+				<tr>
+					<th scope="col"></th>
+					<th class="text-center text-secondary" scope="col">Formule</th>
+					<th class="text-center text-secondary" scope="col">Calcul</th>
+				</tr>
 			</thead>
 			<tbody class="text-secondary display-11">
-			  <tr>
-				<th class="text-secondary">Prix de Vente HT du produit (PV)</th>
-				<td></td>
-				<td><input type="number" class="entree form-control" name="pvht" id="pvht" aria-describedby="pvht" placeholder="ex : 4000" value="4000"></td>
-			  </tr>
-			  <tr>
-				<th scope="row">Chiffre d'Affaires (CA)</th>
-				<td></td>
-				<td> <input type="number" class="entree form-control" name="ca" id="ca" aria-describedby="ca" placeholder="ex : 250000" value="250000"></td>
-			  </tr>
-			  <tr>
-				<th scope="row">Charges Variables (CV)</th>
-				<td></td>
-				<td><input type="number" class="entree form-control" name="cv" id="cv" aria-describedby="cv" placeholder="ex : 100000" value="100000"></td>
-			  </tr>
-			  <tr class="table-warning text-secondary">
-				<th scope="row">Marges Sur Coût Variable (MSCV)</th>
-				<td>CA - CV</td>
-				<td></td>
-				<td></td>
-			  </tr>
-			  <tr class="table-warning text-secondary">
-				<th scope="row">Taux de marge sur coût variable (TMSCV)</th>
-				<td>MSCV / CA</td>
-				<td><div class="result-number" id="tauxmarge"></div></td>
-				<td></td>
-			  </tr>
-			  <tr>
-				<th scope="row">Charges Fixes (CF)</th>
-				<td></td>
-				<td><input type="number" class="entree form-control" name="cf" id="cf" aria-describedby="cf" placeholder="ex : 30000" value="30000"></td>
-			  </tr>
-			  <tr class="table-warning text-secondary">
-				<th scope="row">Résultat</th>
-				<td>MSCV - CF</td>
-				<td><div class="result-number" id="resultat"></div></td>
-			  </tr>
-			  <tr class="table-warning text-secondary">
-				<th scope="row">Seuil de Rentabilité en valeur (SR val)</th>
-				<td>CF / TMSCV</td>
-				<td><div class="result-number" id="seuilvaleur"></div></td>
-			  </tr>
-			  <tr class="table-warning text-secondary">
-				<th scope="row">Seuil de Rentabilité en volume (SR vol)</th>
-				<td>SR val / PV</td>
-				<td><div class="result-number" id="seuilvolume"></div></td>
-			  </tr>
+				<tr>
+					<th class="text-secondary">Prix de Vente HT du produit (PV)</th>
+					<td></td>
+					<td><input type="number" class="entree form-control" name="pvht" id="pvht" aria-describedby="pvht"
+							placeholder="ex : 4000" value="4000"></td>
+				</tr>
+				<tr>
+					<th scope="row">Chiffre d'Affaires (CA)</th>
+					<td></td>
+					<td> <input type="number" class="entree form-control" name="ca" id="ca" aria-describedby="ca"
+							placeholder="ex : 250000" value="250000"></td>
+				</tr>
+				<tr>
+					<th scope="row">Charges Variables (CV)</th>
+					<td></td>
+					<td><input type="number" class="entree form-control" name="cv" id="cv" aria-describedby="cv"
+							placeholder="ex : 100000" value="100000"></td>
+				</tr>
+				<tr class="table-warning text-secondary">
+					<th scope="row">Marges Sur Coût Variable (MSCV)</th>
+					<td>CA - CV</td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr class="table-warning text-secondary">
+					<th scope="row">Taux de marge sur coût variable (TMSCV)</th>
+					<td>MSCV / CA</td>
+					<td>
+						<div class="result-number" id="tauxmarge"></div>
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">Charges Fixes (CF)</th>
+					<td></td>
+					<td><input type="number" class="entree form-control" name="cf" id="cf" aria-describedby="cf"
+							placeholder="ex : 30000" value="30000"></td>
+				</tr>
+				<tr class="table-warning text-secondary">
+					<th scope="row">Résultat</th>
+					<td>MSCV - CF</td>
+					<td>
+						<div class="result-number" id="resultat"></div>
+					</td>
+				</tr>
+				<tr class="table-warning text-secondary">
+					<th scope="row">Seuil de Rentabilité en valeur (SR val)</th>
+					<td>CF / TMSCV</td>
+					<td>
+						<div class="result-number" id="seuilvaleur"></div>
+					</td>
+				</tr>
+				<tr class="table-warning text-secondary">
+					<th scope="row">Seuil de Rentabilité en volume (SR vol)</th>
+					<td>SR val / PV</td>
+					<td>
+						<div class="result-number" id="seuilvolume"></div>
+					</td>
+				</tr>
 			</tbody>
 			<tfoot>
-			  <tr>
-				<th></th>
-				<td><button type="submit" class="btn btn-primary" id="calculer">Calculer 🖩</button></td>
-				<td><button type="submit" class="btn btn-success disabled" id="sauvegarder">Sauvegarder ce calcul 💾</td>
-				<th></th>
-			  </tr>			
+				<tr>
+					<th></th>
+					<td><button type="submit" class="btn btn-primary" id="calculer">Calculer 🖩</button></td>
+					<td><button type="submit" class="btn btn-success disabled" id="sauvegarder">Sauvegarder ce calcul 💾</button></td>
+					<th></th>
+				</tr>
 			</tfoot>
-		  </table>
+		</table>
 
-    <div class="my-3" id="bouton-calcul" title="Procéder au calcul.">
-      
-    </div>
+		<div class="saved-calculs"></div>
+	</div>
 
-    <div class="my-3 disabled" id="bouton-sauvegarde">
-     
-      </button>
-    </div>
-  </div>
-
-  <script src="js/jquery-3.6.0.min.js"></script>
-  <script src="js/seuilrentabilite.js"></script>
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<script src="js/seuilrentabilite.js"></script>
 </body>
 
 </html>
