@@ -140,8 +140,19 @@ function appelAjaxSave(objectResult) {
   })
     .done(function (text) {
       alert("Calcul sauvegardé ✔️");
-      appelAjaxRecup();
-      console.log(text); //pour voir les erreurs
+      // on ajoute le calcul aux calculs sauvegardés
+      $(".saved-calculs").prepend(
+        `<div>
+            chiffre d'affaires : ${objectResult.ca},  
+            coût fixes : ${objectResult.cf},  
+            coût variables : ${objectResult.cv},  
+            prix de vente hors taxe : ${objectResult.pvht},  
+            résultat : ${objectResult.resultat},  
+            taux marge : ${objectResult.taux_marge},  
+            seuil de rentabilité en valeur : ${objectResult.seuil_valeur},  
+            seuil de rentabilité en volume : ${objectResult.seuil_volume}</div>`
+      );
+      $(".saved-calculs").children('div').addClass("saved-calcul");
     })
     .fail(function (xhr, status, errorThrown) {
       alert("Sorry, there was a problem!");
@@ -167,10 +178,7 @@ function appelAjaxRecup() {
         $(".saved-calculs").prepend("<p class='no-save'>Aucun Calcul Sauvegardé</p>");
       } else {
         console.log(json);
-
-        $(".saved-calcul").remove();
         $(".no-save").remove();
-
         for (const element in json) {
           $(".saved-calculs").prepend(
             `<div>
