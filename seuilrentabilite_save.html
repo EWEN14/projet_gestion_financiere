@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Calcul du seuil de rentabilité en valeur et en volume.">
+
+
+
+  <title>Seuil de Rentabilité</title>
+  
+  
+    <!-- Bootstrap core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/icons/font/bootstrap-icons.css" rel="stylesheet">
+	
+	<!-- Bootstrap core JS -->
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap.bundle.min.js"></script>
+		<script src="js/jquery-3.6.0.min.js"></script>
+    
+	<!-- Chargement du menu général -->
+	<script> 
+		$(function(){
+		  $("#php").load("./php/getSavedSeuil.php"); 
+		});
+    </script> 
+</head>
+
+<body>
+  <div id="menu" class="container"></div>
+  
+  <h2 class="text-center text-secondary">Seuil de rentabilité</h2>
+  <p class="text-center text-secondary">Calcul du seuil de rentabilité, en valeur et en volume.</p>
+  
+  <div class="container">
+	<nav>
+	  <ul class="nav nav-tabs">
+	    <li class="nav-item"><a class="nav-link" href="seuilrentabilite">Seuil de Rentabilité</a></li>
+		<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Sauvegarde</a></li>	
+	  </ul>
+	</nav>
+
+<body>
+
+
+
+		<!-- TODO : retirer les value des inputs en fin de projet -->
+		<table class="table table-hover table-sm align-middle table-responsive-sm">
+			<thead>
+			  <tr class="text-secondary text-center align-middle">
+				<th scope="row">Prix de Vente HT du produit (PV)</th>
+				<th scope="row">Chiffre d'Affaires (CA)</th>
+				<th scope="row">Charges Variables (CV)</th>
+				<th scope="row">Marges Sur Coût Variable (MSCV)</th>
+				<th scope="row">Taux de marge sur coût variable (TMSCV)</th>
+				<th scope="row">Charges Fixes (CF)</th>
+				<th scope="row">Résultat</th>
+				<th scope="row">Seuil de Rentabilité en valeur (SR val)</th>
+				<th scope="row">Seuil de Rentabilité en volume (SR vol)</th>
+			  </tr>
+			</thead>
+			<tbody class="text-secondary display-11">
+			  <tr>	
+			  </tr>	
+			</tbody>
+			<tfoot>
+			  <tr>
+			  </tr>			
+			</tfoot>
+		  </table>
+		  <div id="php"></div>
+ </div>
+
+
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/seuilrentabilite.js"></script>
+</body>
+
+</html>
