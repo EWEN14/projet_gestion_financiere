@@ -29,12 +29,14 @@ $('#calculer').on('click', function () {
 
       // calcul des différents éléments
       let resultat = calculResultat(ca, cf, cv);
+      let marge = calculMarge(ca, cv);
       let tauxMarge = calculTauxMarge(ca, cv);
       let seuilValeur = calculSeuilValeur(ca, cf, cv);
       let seuilVolume = calculSeuilVolume(ca, cf, cv, pvht);
 
       // on affiche le résultat dans l'élement correspondant
       $('#resultat').html(`${resultat}`);
+      $('#marge').html(`${marge}`);
       $('#tauxmarge').html(`${tauxMarge}`);
       $('#seuilvaleur').html(`${seuilValeur}`);
       $('#seuilvolume').html(`${seuilVolume} <span class='unite'>unité(s) à vendre</span>`);
@@ -77,6 +79,10 @@ $('#calculer').on('click', function () {
 
 function calculResultat(ca, cf, cv) {
   return ca - cf - cv;
+}
+
+function calculMarge(ca, cv) {
+  return ca - cv;
 }
 
 function calculTauxMarge(ca, cv) {
