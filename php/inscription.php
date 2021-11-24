@@ -23,17 +23,76 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inscription</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Accueil de l'application MEJK.">
+	<title>Accueil</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+
+	<!-- Bootstrap core JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+	</script>
+	<script src="../js/jquery-3.6.0.min.js"></script>
+
 </head>
 <body>
-  <form method="post">
-    <input type="text" name="form_username" placeholder="Identifiant..."><br>
-    <input type="password" name="form_password" placeholder="Mot de passe..."><br>
-    <input type="password" name="form_verifPassword" placeholder="Mot de passe..."><br>
-    <input type="submit" name="valid" value="Valider">
-  </form>
+	<!-- menu de navigation -->
+	<div class="container">
+		<div class="row">
+			<nav class="navbar navbar-expand-sm bg-light navbar-light" style="background-color: #e3f2fd;">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="./index.php">Accueil</a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+				</div>
+					
+			</nav>
+		</div>
+	</div>
+
+
+	<div class="container">
+		<div class="row">
+			<h2 class="text-center text-secondary">Bienvenue sur l'application MEJK</h2>
+		</div>
+	</div>
+
+	<div class="container align-items-center">
+		<div class="row align-self-center">
+			<div class="col align-self-start"></div>
+			<div class="col-5 align-self-center">
+				<br>
+				<h5 class="text-center text-secondary">Pour s'inscrire saisissez un identifaint et un mot de passe, que vous devrez confirmer.</h5>
+				<br><br><br>				
+				<form method="post">
+					<div class="row align-items-center">
+						<label for="exampleInputEmail1" class="col-sm-6 col-form-label">Identifiant</label>
+						<div class="col-sm-6"><input type="text" name="form_username" placeholder="Identifiant..."></div>
+					</div>
+					<div class="row align-items-center">
+						<label for="exampleInputPassword1" class="col-sm-6 col-form-label">Mot de passe</label>						
+						<div class="col-sm-6"><input type="password" name="form_password" placeholder="Mot de passe..."></div>
+					</div>
+					<div class="row align-items-center">
+						<label for="exampleInputPassword1" class="col-sm-6 col-form-label"> Confirmer mot de passe</label>
+						<div class="col-sm-6"><input type="password" name="form_verifPassword" placeholder="Confirler mot de passe..."></div>
+					</div>
+					<div  class="row align-items-center">
+						<div class="col align-self-start"></div>
+						<div class="col-sm-3"><input type="submit" class="btn btn-primary" name="valid" value="Valider"></div>
+						<div class="col align-self-end"></div>
+					</div>
+				</form>
+			</div>
+			<div class="col align-self-end"></div>
+		</div>
+	</div> 
 </body>
 </html>
