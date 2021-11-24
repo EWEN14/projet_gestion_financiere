@@ -4,6 +4,8 @@ require_once './functions/utils.php';
 require_once './data/DataBase.php';
 require_once './class/gestion/seuil.php';
 
+init_session();
+
 if (isset($_POST['code'])) {
   $data = json_decode(stripslashes($_POST['code']), true);
 
@@ -19,6 +21,6 @@ if (isset($_POST['code'])) {
   $seuil->setSeuilValeur(intToFloat($data["seuil_valeur"]));
   $seuil->setSeuilVolume(intToFloat($data["seuil_volume"]));
 
-  $base->sauvegardeCalcul($seuil, 1);
+  $base->sauvegardeCalcul($seuil, $_SESSION['idUser']);
 }
 

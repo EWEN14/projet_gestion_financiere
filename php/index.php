@@ -18,9 +18,12 @@ if (isset($_POST['valid_connection'])) {
 
 		$requete = new DataBase();
 		$verifUser = $requete->getUserName($username);
+
 		if (password_verify($password, $verifUser->getPassword())) {
 			$_SESSION['username'] = $username;
 			$_SESSION['rank'] = $verifUser->getAdmin();
+			$_SESSION['rank2'] = $verifUser->getAdmin();
+			$_SESSION['idUser'] = $verifUser->getId();
 			header('Location: ./index.php');
 		} else {
 			echo 'Identifiant ou mot de passe incorrect';
@@ -71,6 +74,9 @@ if (isset($_POST['valid_connection'])) {
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="../cump.html">CUMP</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="./getSavedSeuil.php">get seuil</a>
 								</li>
 							<?php endif; ?>
 

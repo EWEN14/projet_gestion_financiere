@@ -37,6 +37,7 @@ class Database
       $utilisateur->setName($value->user_name);
       $utilisateur->setPassword($value->user_password);
       $utilisateur->setAdmin($value->user_admin);
+      $utilisateur->setId($value->id);
       return $utilisateur;
     } catch (PDOException $pe) {
       echo 'ERREUR : ' . $pe->getMessage();
