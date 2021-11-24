@@ -186,19 +186,22 @@ function appelAjaxRecup() {
         console.log(json);
         $(".no-save").remove();
         for (const element in json) {
-          $(".saved-calculs").prepend(
-            `<div>
-                chiffre d'affaires : ${json[element].chiffre_affaire},  
-                coût fixes : ${json[element].cout_fixe},  
-                coût variables : ${json[element].cout_variable},  
-                prix de vente hors taxe : ${json[element].prix_vente_hors_taxe},  
-                résultat : ${json[element].seuil_resultat},  
-                taux marge : ${json[element].taux_marge},  
-                seuil de rentabilité en valeur : ${json[element].seuil_valeur},  
-                seuil de rentabilité en volume : ${json[element].seuil_volume}</div>`
+          $("#table-body").prepend(
+            `<tr>
+                <th>${json[element].prix_vente_hors_taxe}</th>
+                <th>${json[element].chiffre_affaire}</th> 
+                <th>${json[element].cout_variable}</th>
+                <th>${json[element].taux_marge * json[element].chiffre_affaire}</th> 
+                <th>${json[element].taux_marge}</th> 
+                <th>${json[element].cout_fixe}</th>
+                <th>${json[element].seuil_resultat}</th>
+                <th>${json[element].seuil_valeur}</th>seuil de rentabilité en valeur : ,  
+                <th>${json[element].seuil_volume}</th>
+            </tr>`
           );
         }
-        $(".saved-calculs").children('div').addClass("saved-calcul");
+        $("#table-body").children('tr').addClass("saved-calcutext-secondary text-center align-middle");
+        $("#table-body").children('th').attr("scope","row");
       }
     })
     .fail(function (xhr, status, errorThrown) {

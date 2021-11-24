@@ -7,76 +7,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Calcul du seuil de rentabilité en valeur et en volume.">
 
-
-
   <title>Seuil de Rentabilité</title>
-  
-  
-    <!-- Bootstrap core CSS -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/icons/font/bootstrap-icons.css" rel="stylesheet">
-	
-	<!-- Bootstrap core JS -->
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/bootstrap.bundle.min.js"></script>
-		<script src="js/jquery-3.6.0.min.js"></script>
-    
-	<!-- Chargement du menu général -->
-	<script> 
-		$(function(){
-		  $("#php").load("./php/getSavedSeuil.php"); 
-		});
-		$(function(){
-		  $("#menu").load("menu.html"); 
-		});
-    </script> 
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+  <link href="css/seuilrentabilite.css" rel="stylesheet">
+
+  <!-- Bootstrap core JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
+
 </head>
 
 <body>
-  <div id="menu" class="container"></div>
-  
+  <div id="menu" class="container">
+    <nav class="navbar navbar-expand-sm bg-light navbar-light" style="background-color: #e3f2fd;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="php/index.php">Accueil</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="seuilrentabilite.html">Seuil de rentabilité</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cump.html">CUMP</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cump-moyen-pondere"></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="px-3"> <a href="php/index.php?action=logout"><i class="bi bi-door-open-fill"
+            style="font-size: 2rem; color: #eb984e;"></i></a></div>
+    </nav>
+  </div>
+
   <h2 class="text-center text-secondary">Seuil de rentabilité</h2>
   <p class="text-center text-secondary">Calcul du seuil de rentabilité, en valeur et en volume.</p>
-  
+
   <div class="container">
-	<nav>
-	  <ul class="nav nav-tabs">
-	    <li class="nav-item"><a class="nav-link" href="seuilrentabilite">Seuil de Rentabilité</a></li>
-		<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Sauvegarde</a></li>	
-	  </ul>
-	</nav>
+    <nav>
+      <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link" href="seuilrentabilite">Seuil de Rentabilité</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Sauvegarde</a></li>
+      </ul>
+    </nav>
 
-<body>
-
-
-
-		<!-- TODO : retirer les value des inputs en fin de projet -->
-		<table class="table table-hover table-sm align-middle table-responsive-sm">
-			<thead>
-			  <tr class="text-secondary text-center align-middle">
-				<th scope="row">Prix de Vente HT du produit (PV)</th>
-				<th scope="row">Chiffre d'Affaires (CA)</th>
-				<th scope="row">Charges Variables (CV)</th>
-				<th scope="row">Marges Sur Coût Variable (MSCV)</th>
-				<th scope="row">Taux de marge sur coût variable (TMSCV)</th>
-				<th scope="row">Charges Fixes (CF)</th>
-				<th scope="row">Résultat</th>
-				<th scope="row">Seuil de Rentabilité en valeur (SR val)</th>
-				<th scope="row">Seuil de Rentabilité en volume (SR vol)</th>
-			  </tr>
-			</thead>
-			<tbody class="text-secondary display-11">
-			  <tr>	
-			  </tr>	
-			</tbody>
-			<tfoot>
-			  <tr>
-			  </tr>			
-			</tfoot>
-		  </table>
-		  <div id="php"></div>
- </div>
-
+    <body>
+      <!-- TODO : retirer les value des inputs en fin de projet -->
+      <table class="table table-hover table-sm align-middle table-responsive-sm">
+        <thead>
+          <tr class="text-secondary text-center align-middle">
+            <th scope="row">Prix de Vente HT du produit (PV)</th>
+            <th scope="row">Chiffre d'Affaires (CA)</th>
+            <th scope="row">Charges Variables (CV)</th>
+            <th scope="row">Marges Sur Coût Variable (MSCV)</th>
+            <th scope="row">Taux de marge sur coût variable (TMSCV)</th>
+            <th scope="row">Charges Fixes (CF)</th>
+            <th scope="row">Résultat</th>
+            <th scope="row">Seuil de Rentabilité en valeur (SR val)</th>
+            <th scope="row">Seuil de Rentabilité en volume (SR vol)</th>
+          </tr>
+        </thead>
+        <tbody id="table-body" class="text-secondary display-11">
+          
+        </tbody>
+        <tfoot>
+          <tr>
+          </tr>
+        </tfoot>
+      </table>
+      <div id="php"></div>
+  </div>
 
   <script src="js/jquery-3.6.0.min.js"></script>
   <script src="js/seuilrentabilite.js"></script>
