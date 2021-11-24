@@ -84,6 +84,7 @@
 						<label for="exampleInputPassword1" class="col-sm-6 col-form-label"> Confirmer mot de passe</label>
 						<div class="col-sm-6"><input type="password" name="form_verifPassword" placeholder="Confirler mot de passe..."></div>
 					</div>
+					<br>
 					<div  class="row align-items-center">
 						<div class="col align-self-start"></div>
 						<div class="col-sm-3"><input type="submit" class="btn btn-primary" name="valid" value="Valider"></div>
