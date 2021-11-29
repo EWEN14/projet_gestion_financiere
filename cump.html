@@ -2,114 +2,132 @@
 <html lang="fr">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Calcul du coût unitaire selon la méthode CUMP.">
-
-  <!-- Custom CSS -->
-  <link href="css/main.css" rel="stylesheet">
-
-  <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
-
-  <!-- Bootstrap core JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-  </script>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Calcul du seuil de rentabilité en valeur et en volume.">
 
   <title>Coût Unitaire Moyen Pondéré</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+	<link href="css/seuilrentabilite.css" rel="stylesheet">
+
+	<!-- Bootstrap core JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+		integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+	</script>
+
 </head>
 
 <body>
-  <div class="container-fluid">
-    <div id="menu" class="container">
-      <nav class="navbar navbar-expand-sm bg-light navbar-light" style="background-color: #e3f2fd;">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="php/index.php">Accueil</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="seuilrentabilite.html">Seuil de rentabilité</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="cump.html">CUMP</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="cump-moyen-pondere"></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="px-3"> <a href="php/index.php?action=logout"><i class="bi bi-door-open-fill"
-              style="font-size: 2rem; color: #eb984e;"></i></a></div>
-      </nav>
-    </div>
+	<div id="menu" class="container">
+		<nav class="navbar navbar-expand-sm bg-light navbar-light" style="background-color: #e3f2fd;"> 
+			<div class="container-fluid"> 
+				<a class="navbar-brand" href="php/index.php">Accueil</a> 
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"> 
+					<span class="navbar-toggler-icon"></span> 
+				</button> 
+				<div class="collapse navbar-collapse" id="collapsibleNavbar"> 
+					<ul class="navbar-nav"> 
+						<li class="nav-item"> 
+							<a class="nav-link" href="seuilrentabilite">Seuil de rentabilité</a> 
+						</li> 
+						<li class="nav-item"> 
+							<a class="nav-link" href="cump.html">CUMP</a> 
+						</li> 
+						<li class="nav-item"> 
+							<a class="nav-link" href="cump-moyen-pondere"></a> 
+						</li> 
+					</ul> 
+				</div> 
+			</div> 
+			<div class="px-3"> <a href="php/index.php?action=logout"><i class="bi bi-door-open-fill" 
+						style="font-size: 2rem; color: #eb984e;"></i></a></div> 
+		</nav>
+	</div>
 
-    <h1>Coût Unitaire Moyen Pondéré</h1>
+	<h2 class="text-center text-secondary">Coût Unitaire Moyen Pondéré</h2>
+	<p class="text-center text-secondary">Calcul d'un coût unitaire moyen pondéré d'un produit avec des entrée et des sorties.</p>
 
-    <p>Calcul d'un coût unitaire moyen pondéré d'un produit avec des entrée et des sorties</p>
+	<div class="container">
+		<nav>
+			<ul class="nav nav-tabs">
+				<li class="nav-item"><a class="nav-link active" aria-current="page" href="seuilrentabilite">Coût Unitaire Moyen Pondéré</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Sauvegarde</a></li>
+			</ul>
+		</nav>
 
-    <table class="table table-dark table-bordered">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">Type</th>
-          <th scope="col" colspan="3">Entrée</th>
-          <th scope="col" colspan="3">Sortie</th>
-          <th scope="col" colspan="3">Stock</th>
-          <th scope="col">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td></td>
-          <td>Quantité</td>
-          <td>Coût Unitaire</td>
-          <td>Montant</td>
-          <td>Quantité</td>
-          <td>Coût Unitaire</td>
-          <td>Montant</td>
-          <td>Quantité</td>
-          <td>Coût Unitaire</td>
-          <td>Montant</td>
-        </tr>
+		<!-- TODO : retirer les value des inputs en fin de projet -->
+		<table class="table table-hover table-sm align-middle table-responsive-sm text-center text-secondary">
+		  <thead class="thead-dark">
+			<tr>
+			  <th scope="col">Type</th>
+			  <th scope="col" colspan="3">Entrée</th>
+			  <th scope="col" colspan="3">Sortie</th>
+			  <th scope="col" colspan="3">Stock</th>
+			  <th scope="col">Action</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+			  <td></td>
+			  <td>Quantité</td>
+			  <td>Coût Unitaire</td>
+			  <td>Montant</td>
+			  <td>Quantité</td>
+			  <td>Coût Unitaire</td>
+			  <td>Montant</td>
+			  <td>Quantité</td>
+			  <td>Coût Unitaire</td>
+			  <td>Montant</td>
+			</tr>
 
-        <tr id="l1">
-          <td class="align-middle">Stock Initial</td>
-          <td colspan="6"></td>
-          <td class="align-middle" id="td1_l1"><input id="i1_l1" type="number" min="0" name="quantite"
-              placeholder="ex : 100" value="100"></td>
-          <td class="align-middle" id="td2_l1"><input id="i2_l1" type="number" min="0" name="coutunitaire"
-              placeholder="ex : 50" value="50"></td>
-          <td class="align-middle" id="td3_l1"></td>
-          <td class="align-middle act" id="act_l1"><button class="btn btn-success valider">✔️</button></td>
-        </tr>
+			<tr id="l1">
+			  <td class="align-middle">Stock Initial</td>
+			  <td colspan="6"></td>
+			  <td class="align-middle" id="td1_l1"><input id="i1_l1" type="number" min="0" name="quantite"
+				  placeholder="ex : 100" value="100"></td>
+			  <td class="align-middle" id="td2_l1"><input id="i2_l1" type="number" min="0" name="coutunitaire"
+				  placeholder="ex : 50" value="50"></td>
+			  <td class="align-middle" id="td3_l1"></td>
+			  <td class="align-middle act" id="act_l1"><button class="btn btn-success valider">✔️</button></td>
+			</tr>
 
-        <tr class="ajout">
-          <td></td>
-          <td class="new" colspan="3"><button class="btn btn-warning" id="new-entree">➕ Nouvelle entrée</button></td>
-          <td class="new" colspan="3"><button class="btn btn-warning" id="new-sortie">➕ Nouvelle sortie</button></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
+			<tr class="ajout">
+			  <td></td>
+			  <td class="new text-center" colspan="3"><button class="btn btn-warning" id="new-entree">➕ Nouvelle entrée</button></td>
+			  <td class="new" colspan="3"><button class="btn btn-warning" id="new-sortie">➕ Nouvelle sortie</button></td>
+			  <td></td>
+			  <td></td>
+			  <td></td>
+			</tr>
+		  </tbody>
+		  <tfoot>
+            <tr>
+					<th></th>
+					<td><button type="submit" class="btn btn-primary" id="calculer">Calculer 🖩</button></td>
+					<td><button type="submit" class="btn btn-success disabled" id="sauvegarder">Sauvegarder ce calcul 💾</td>
+					<th></th>
+				</tr>
+			</tfoot>
+		</table>
 
-  </div>
+		<div class="my-3" id="bouton-calcul" title="Procéder au calcul.">
 
-  <script src="js/jquery-3.6.0.min.js"></script>
+		</div>
+
+		<div class="my-3 disabled" id="bouton-sauvegarde">
+
+			</button>
+		</div>
+	</div>
+
+	<script src="js/jquery-3.6.0.min.js"></script>
   <script src="js/cump.js"></script>
-
-  <!-- Bootstrap 5 Bundle with Popper, no more JQuery required  -->
-  <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>-->
 </body>
-
 </html>
