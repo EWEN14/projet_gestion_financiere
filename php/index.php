@@ -75,9 +75,6 @@ if (isset($_POST['valid_connection'])) {
 								<li class="nav-item">
 									<a class="nav-link" href="../cump.html">CUMP</a>
 								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="./getSavedSeuil.php">get seuil</a>
-								</li>
 							<?php endif; ?>
 
 							<?php if (!is_logged()) : ?>
