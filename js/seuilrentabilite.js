@@ -188,16 +188,16 @@ function appelAjaxRecup() {
         $(".no-save").remove();
         for (const element in json) {
           $("#table-body").prepend(
-            `<tr>
-                <th>${json[element].prix_vente_hors_taxe}</th>
-                <th>${json[element].chiffre_affaire}</th> 
-                <th>${json[element].cout_variable}</th>
-                <th>${json[element].taux_marge * json[element].chiffre_affaire}</th> 
-                <th>${json[element].taux_marge}</th> 
-                <th>${json[element].cout_fixe}</th>
-                <th>${json[element].seuil_resultat}</th>
-                <th>${json[element].seuil_valeur}</th>seuil de rentabilité en valeur : ,  
-                <th>${json[element].seuil_volume}</th>
+            `<tr class="font-weight-light">
+                <td class="font-weight-light">${json[element].prix_vente_hors_taxe}</td>
+                <td>${json[element].chiffre_affaire}</td> 
+                <td>${json[element].cout_variable}</td>
+                <td>${json[element].taux_marge * json[element].chiffre_affaire}</td> 
+                <td>${json[element].taux_marge}</td> 
+                <td>${json[element].cout_fixe}</td>
+                <td>${json[element].seuil_resultat}</td>
+                <td>${json[element].seuil_valeur}</td>seuil de rentabilité en valeur : ,  
+                <td>${json[element].seuil_volume}</td>
             </tr>`
           );
         }

@@ -196,7 +196,7 @@ $('#new-entree').on('click', function () {
     saisieEnCours = saisie.ENTREE;
     $('.ajout').before(`
     <tr id="l${index}">
-      <td class="align-middle">Entrée</td>
+      <td class="text-left align-middle">Entrée</td>
       <td class="align-middle" id="td1_l${index}"><input id="i1_l${index}" type="number" min="0" name="quantite" placeholder="ex : 100" value="100"></td>
       <td class="align-middle" id="td2_l${index}"><input id="i2_l${index}" type="number" min="0" name="coutunitaire" placeholder="ex : 45" value="45"></td>
       <td class="align-middle" id="td3_l${index}"></td>
@@ -226,7 +226,7 @@ $('#new-sortie').on('click', function () {
     saisieEnCours = saisie.SORTIE;
     $('.ajout').before(`
     <tr id="l${index}">
-      <td class="align-middle">Entrée</td>
+      <td class="text-left align-middle">Sortie</td>
       <td colspan="3"></td>
       <td class="align-middle" id="td1_l${index}"><input id="i1_l${index}" type="number" min="0" max="${tabCump[index - 1].stkQ}" name="quantite" placeholder="max: ${tabCump[index - 1].stkQ}"></td>
       <td class="align-middle" id="td2_l${index}"><span id="i2_l${index}">${tabCump[index - 1].stkCu}</span></td>
