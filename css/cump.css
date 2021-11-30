@@ -1,23 +1,10 @@
-table {
-  text-align: center;
-}
-
 table input {
   width: 110px;
-}
-
-.ajout td {
-  background-color: rgba(0, 0, 0, 0) !important;
-  border: none !important;
 }
 
 .new button:hover {
   text-decoration: underline;
   cursor: pointer;
-}
-
-.valider {
-  color: #00f81f;;
 }
 
 

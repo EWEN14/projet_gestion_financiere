@@ -1,19 +1,15 @@
-@import 'seuilrentabilite.css';
-@import 'cump.css';
-
 * {
   transition: all 0.5s;
 }
 
-body {
-  color: white !important;
-  width: 100%;
-  min-height: 100vh;
-  /*background-image: linear-gradient(to right bottom, #051937, #00466e, #007680, #00a463, #93c81e);*/
-  background-image: linear-gradient(to right bottom, #051937, #0b1f53, #25226c, #461e82, #6d0592);
-  background-size: 100% 100%;
+.options {
+  display: flex;
+  min-width: 170px;
+  justify-content: center;
+  align-items: center;
 }
 
-.disabled {
-  cursor: not-allowed !important;
+.erreurMDP {
+  color: red;
+  font-weight: bold;
 }

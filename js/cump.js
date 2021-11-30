@@ -57,7 +57,8 @@ $('table').on('click', '.valider', function () {
         $(`#td3_l1`).text(`${parseInt(quantiteSaisie) * parseFloat(coutUnitaireSaisi)}`);
 
         // On remplace le bouton de validation par un bouton de modification
-        $('#act_l1').html(`<button id="m_${index}" class="btn btn-primary modifier">✏️</button>`);
+        $('#act_l1').html(`<span></span>`);
+        // $('#act_l1').html(`<button id="m_${index}" class="btn btn-primary modifier">✏️</button>`);
 
         // objet représentant la ligne de stock initial créé, que l'on va pousser dans notre tableau
         let stockInitial = {
@@ -100,9 +101,8 @@ $('table').on('click', '.valider', function () {
         $(`#td5_l${index}`).text(`${newCoutUnitaire}`);
         $(`#td6_l${index}`).text(`${newMontantStockIn}`);
 
-        // On remplace le bouton de validation par un bouton de modification
+        // On remplace le bouton de validation par un bouton de suppression / modification
         $(`#act_l${index}`).html(`
-          <button id="m_${index}" class="btn btn-primary modifier">✏️</button>
           <button id="s_${index}" class="btn btn-danger supprimer">🗑️</button>`);
 
         // objet représentant la ligne créé, que l'on va pousser dans notre tableau
@@ -152,7 +152,6 @@ $('table').on('click', '.valider', function () {
 
         // On remplace le bouton de validation par un bouton de modification
         $(`#act_l${index}`).html(`
-          <button id="m_${index}" class="btn btn-primary modifier">✏️</button>
           <button id="s_${index}" class="btn btn-danger supprimer">🗑️</button>`);
 
         // objet représentant la ligne créé, que l'on va pousser dans notre tableau
@@ -181,7 +180,7 @@ $('table').on('click', '.valider', function () {
         alert("Vous n'êtes pas censé voir ce message !");
     }
   } else {
-    alert('Veuillez remplir les deux champs avant de valider.');
+    alert('Veuillez remplir le(s) champ(s) avant de valider.');
   }
 });
 
