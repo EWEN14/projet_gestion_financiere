@@ -26,10 +26,10 @@ if (isset($_POST['valid_connection'])) {
 			$_SESSION['idUser'] = $verifUser->getId();
 			header('Location: ./index.php');
 		} else {
-			echo 'Identifiant ou mot de passe incorrect';
+			$erreurMDP = 'Identifiant ou mot de passe incorrect';
 		}
 	} else {
-		echo 'Identifiant ou mot de passe incorrect';
+		$erreurMDP = 'Identifiant ou mot de passe incorrect';
 	}
 }
 ?>
@@ -42,6 +42,8 @@ if (isset($_POST['valid_connection'])) {
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Accueil de l'application MEJK.">
 	<title>Accueil</title>
+	
+	<link href="../css/main.css" rel="stylesheet">
 
 	<!-- Bootstrap core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -86,7 +88,10 @@ if (isset($_POST['valid_connection'])) {
 					</div>
 				</div>
 				<?php if (is_logged()) : ?>
-					<a href="index.php?action=logout"><i class="bi bi-door-open-fill" style="font-size: 2rem; color: #eb984e;"></i></a>
+					<div class="options">
+						<a class="px-3" href="changementMDP.php">Changer MDP</a>
+						<a href="index.php?action=logout"><i class="bi bi-door-open-fill" style="font-size: 2rem; color: #eb984e;"></i></a>
+					</div>
 		</div>
 	<?php endif; ?>
 	</nav>
@@ -107,7 +112,7 @@ if (isset($_POST['valid_connection'])) {
 		<div class="container">
 			<div class="row">
 				<div class="col align-self-start"></div>
-				<div class="col-3 align-self-center">
+				<div class="col-4 align-self-center">
 					<h4 class="text-center text-secondary">Se connecter</h4>
 					<form method="post">
 						<div>
@@ -119,8 +124,14 @@ if (isset($_POST['valid_connection'])) {
 							<input type="password" class="form-control" name="form_password" placeholder="Mot de passe...">
 						</div>
 						<div class="mt-3">
-							<input type="submit" class="btn btn-primary" name="valid_connection" value="Connection">
+							<input type="submit" class="btn btn-primary" name="valid_connection" value="Connexion">
 						</div>
+						<?php 
+						if (isset($erreurMDP)) {
+							echo "<div class='erreurMDP'>".$erreurMDP."</div>";
+							$erreurMDP = null;
+						}
+					?>
 				</div>
 				<div class="col align-self-end"></div>
 			</div>
