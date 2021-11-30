@@ -1,5 +1,5 @@
 <?php
-
+/*Projet MEJK/UNC MIAGE/Méthode agile/getSavedSeuil*/ 
 require_once './data/DataBase.php';
 require_once './class/gestion/seuil.php';
 require_once './functions/utils.php';

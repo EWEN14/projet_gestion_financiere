@@ -1,4 +1,5 @@
 <?php
+  /*Projet MEJK/UNC MIAGE/Méthode agile/content*/ 
   require 'functions\utils.php';
   init_session();
  ?>
@@ -12,16 +13,16 @@
   <body>
     <h1>Autre page</h1>
 
-    <p>Bonjour, je sais toujours qui vous êtes : <?= $_SESSION['username'] ?> !!!</p>
+    <p>Bonjour <?= $_SESSION['username'] ?>.</p>
 
     <?php if (is_admin()): ?>
-      <p>Bonjour, vous êtes un administrateur !!!</p>
+      <p>Vous êtes administrateur.</p>
     <?php endif; ?>
-    <a href="index.php?action=logout">Se déconnecté !!!</a>
+    <a href="index.php?action=logout">Se déconnecter</a>
     <nav>
       <ul>
         <li>
-          <a href="index.php">Acceuil</a>
+          <a href="index.php">Accueil</a>
         </li>
         <li>
           <a href="content.php">Page</a>

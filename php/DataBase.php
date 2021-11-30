@@ -1,4 +1,5 @@
 <?PHP
+/*Projet MEJK/UNC MIAGE/Méthode agile/DataBase*/ 
 require_once 'class\utilisateur\user.php';
 require_once 'functions\utils.php';
 require_once 'class\gestion\seuil.php';
@@ -42,7 +43,7 @@ class Database
     } catch (PDOException $pe) {
       echo 'ERREUR : ' . $pe->getMessage();
     }
-    return new Users(); // jamais atteint normalement
+    return new Users(); // Cas peu probable 
   }
 
   public function createUser($username, $password)

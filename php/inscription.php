@@ -1,4 +1,5 @@
 <?php
+  /*Projet MEJK/UNC MIAGE/Méthode agile/inscription*/ 
   require 'functions\utils.php';
   require 'data\DataBase.php';
   
@@ -15,7 +16,7 @@
       $requete->createUser(htmlspecialchars($username), $password);
       header('Location:index.php');
     }else {
-      echo 'Identifiant ou mot de passe manquant...';
+      echo 'Veuillez entrer un identifiant et un mot de passe.';
     }
   }
   ?>
@@ -60,7 +61,7 @@
 
 	<div class="container">
 		<div class="row">
-			<h2 class="text-center text-secondary">Bienvenue sur l'application MEJK</h2>
+			<h2 class="text-center text-secondary">Créer un compte</h2>
 		</div>
 	</div>
 
@@ -69,20 +70,20 @@
 			<div class="col align-self-start"></div>
 			<div class="col-5 align-self-center">
 				<br>
-				<h5 class="text-center text-secondary">Pour s'inscrire saisissez un identifaint et un mot de passe, que vous devrez confirmer.</h5>
+				<h5 class="text-center text-secondary">Remplir les champs ci-dessous.</h5>
 				<br><br><br>				
 				<form method="post">
 					<div class="row align-items-center">
-						<label for="exampleInputEmail1" class="col-sm-6 col-form-label">Identifiant</label>
+						<label for="exampleInputEmail1" class="col-sm-6 col-form-label">Identifiant :</label>
 						<div class="col-sm-6"><input type="text" name="form_username" placeholder="Identifiant..."></div>
 					</div>
 					<div class="row align-items-center">
-						<label for="exampleInputPassword1" class="col-sm-6 col-form-label">Mot de passe</label>						
+						<label for="exampleInputPassword1" class="col-sm-6 col-form-label">Mot de passe :</label>						
 						<div class="col-sm-6"><input type="password" name="form_password" placeholder="Mot de passe..."></div>
 					</div>
 					<div class="row align-items-center">
-						<label for="exampleInputPassword1" class="col-sm-6 col-form-label"> Confirmer mot de passe</label>
-						<div class="col-sm-6"><input type="password" name="form_verifPassword" placeholder="Confirler mot de passe..."></div>
+						<label for="exampleInputPassword1" class="col-sm-6 col-form-label"> Confirmer mot de passe :</label>
+						<div class="col-sm-6"><input type="password" name="form_verifPassword" placeholder="Confirmer mot de passe..."></div>
 					</div>
 					<br>
 					<div  class="row align-items-center">

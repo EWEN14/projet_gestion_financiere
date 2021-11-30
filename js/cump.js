@@ -1,49 +1,51 @@
-// TODO: retirer plus tard les value dans les inputs créés
+//Projet MEJK/UNC MIAGE/Méthode agile/cump
+// TODO: Retirer plus tard les values dans les inputs créés.
 
-// tableau qui contiendra les objets représentant chaque ligne
+// Tableau contenant les objets représentant chaque ligne. 
 let tabCump = [];
-// insertion d'un élément inutile, pour manipuler le tableau à partir de l'index 1.
+// Insertion d'un élément inutile pour manipuler le tableau à partir de l'index 1.
 tabCump.push("CUMP");
 
-// voici les propriétés de chaque objet :
+// Ci-dessous les propriétés de chaque objet :
 /**
- * type: type de saisie
- * eQ: quantité en entrée
- * eCu: coût unitaire du produit en entrée
- * eM : montant total de ce qui est entré
- * sQ: quantité en sortie
- * sCu: coût unitaire en sortie
- * sM :  montant total de ce qui est sorti
- * stkQ: quantité en stock
- * stkCu: coût unitaire des produits en stock
- * stkM: montant total des produits en stock
+ * type: type de saisie;
+ * eQ: quantité en entrée;
+ * eCu: coût unitaire du produit entrée;
+ * eM : montant total de l'entrée;
+ * sQ: quantité en sortie;
+ * sCu: coût unitaire du produit sortie;
+ * sM : montant total de la sortie;
+ * stkQ: quantité du stock;
+ * stkCu: coût unitaire d(u/es) produit(s) en stock;
+ * stkM: montant total d(u/es) produit(s) en stock;
  */
 
-// représente les différents types de saisie
+// Représente la ligne sur laquelle on travaille.
 const saisie = {
   STOCKINITIAL: 'si',
   ENTREE: 'entree',
   SORTIE: 'sortie'
 };
 
-// représente la ligne sur laquelle on travaille
+// Représente la ligne sur laquelle on travaille.
 let index = 1;
 
-// définit si une ligne est actuellement en train d'être éditée. Si c'est le cas, on ne pourra 
-// pas ajouter une nouvelle entrée ou sortie avant que cette variable passe à false, lorsque la ligne aura été validée
+/* Définit si une ligne est actuellement en train d'être éditée. Si c'est le cas, 
+on ne pourra pas ajouter de nouvelle entrée ou sortie avant que cette variable passe à false, 
+lorsque la ligne aura été validée. */
 let editOn = true;
 
-// variable qui permet de définir quelle type d'entrée est saisie (stock initial, entrée ou sortie)
+// Variable permettant de définir quel type d'entrée est saisie (stock initial, entrée ou sortie).
 saisieEnCours = saisie.STOCKINITIAL;
 
-// Action qui se déclenche lorsque l'on va cliquer sur le bouton valider d'une ligne
+// Action qui se déclenche lorsque l'on clique sur le bouton "valider" d'une ligne.
 $('table').on('click', '.valider', function () {
   let quantiteSaisie = $(`#i1_l${index}`).val();
   let coutUnitaireSaisi = "";
 
-  if (saisieEnCours != saisie.SORTIE) { // si pas une sortie, on récupère la valeur de l'input
+  if (saisieEnCours != saisie.SORTIE) { // si pas de sortie, on récupère la valeur de l'input.
     coutUnitaireSaisi = $(`#i2_l${index}`).val();
-  } else { // sinon, on récupère le texte dans la colonne
+  } else { // sinon, on récupère le texte dans la colonne.
     coutUnitaireSaisi = $(`#i2_l${index}`).text();
   }
 
@@ -51,16 +53,16 @@ $('table').on('click', '.valider', function () {
     switch (saisieEnCours) {
       case saisie.STOCKINITIAL:
 
-        // On remplace les inputs par le texte contenant les valeurs
+        // On remplace les inputs par le texte contenant les valeurs.
         $(`#td1_l1`).text(`${quantiteSaisie}`);
         $(`#td2_l1`).text(`${coutUnitaireSaisi}`);
         $(`#td3_l1`).text(`${parseInt(quantiteSaisie) * parseFloat(coutUnitaireSaisi)}`);
 
-        // On remplace le bouton de validation par un bouton de modification
+        // On remplace le bouton "validation" par un bouton "modification". 
         $('#act_l1').html(`<span></span>`);
         // $('#act_l1').html(`<button id="m_${index}" class="btn btn-primary modifier">✏️</button>`);
 
-        // objet représentant la ligne de stock initial créé, que l'on va pousser dans notre tableau
+        // Objet représentant la ligne de stock initial créé, que l'on va pousser dans notre tableau. 
         let stockInitial = {
           type: saisie.STOCKINITIAL,
           eQ: 0,
@@ -75,37 +77,37 @@ $('table').on('click', '.valider', function () {
         }
         tabCump.push(stockInitial);
 
-        // On passe l'edit à false car on considère qu'on a fini de travailler sur la ligne en appuyant sur valider
+        // En appuyant sur "valider", edit passe à false car le travail sur la ligne est terminé.
         editOn = false;
 
-        // on augmente l'index de 1, pour indiquer que l'on va ensuite travailler sur une nouvelle ligne
+        // Pour indiquer que l'on va travailler sur une nouvelle ligne, on augmente index de 1. 
         index++;
         break;
 
       case saisie.ENTREE:
-        // On remplace les inputs par le texte contenant les valeurs
+        // Remplacement des inputs par le texte contenant les valeurs. 
         $(`#td1_l${index}`).text(`${quantiteSaisie}`);
         $(`#td2_l${index}`).text(`${coutUnitaireSaisi}`);
-        // montant en entrée arrondi à deux unités après la virgule
+        // Le montant en entrée est arrondi à deux chiffres après la virgule.
         let valeurEntree = +(parseInt(quantiteSaisie) * parseFloat(coutUnitaireSaisi)).toFixed(2);
         $(`#td3_l${index}`).text(`${valeurEntree}`);
 
-        // On met à jour la quantité en stock
+        // Mise à jour de la quantité en stock.
         let newQuantityIn = parseInt(quantiteSaisie) + tabCump[index - 1].stkQ;
-        // nouveau cout moyen pondéré, arrondi à deux unités après la virgule
+        // Le nouveau cout moyen pondéré est arrondi à deux chiffres après la virgule. 
         let newCoutUnitaire = +((valeurEntree + tabCump[index - 1].stkM) / newQuantityIn).toFixed(2);
-        // nouveau montant en stock suite à l'entrée
+        // Modification du montant en stock, suite à une nouvelle entrée. 
         let newMontantStockIn = +(newQuantityIn * newCoutUnitaire).toFixed(2);
 
         $(`#td4_l${index}`).text(`${newQuantityIn}`);
         $(`#td5_l${index}`).text(`${newCoutUnitaire}`);
         $(`#td6_l${index}`).text(`${newMontantStockIn}`);
 
-        // On remplace le bouton de validation par un bouton de suppression / modification
+        // Remplacement du bouton "validation" par un bouton "modification". 
         $(`#act_l${index}`).html(`
           <button id="s_${index}" class="btn btn-danger supprimer">🗑️</button>`);
 
-        // objet représentant la ligne créé, que l'on va pousser dans notre tableau
+        // Objet représentant la ligne créé, que l'on va pousser dans notre tableau.
         let newEntry = {
           type: saisie.ENTREE,
           eQ: parseInt(quantiteSaisie),
@@ -120,41 +122,41 @@ $('table').on('click', '.valider', function () {
         }
         tabCump.push(newEntry);
 
-        // on passe l'edit à false car on considère qu'on a fini de travailler sur la ligne en appuyant sur valider
+        // En appuyant sur "valider", edit passe à false car le travail sur la ligne est terminé.
         editOn = false;
 
-        // on augmente l'index de 1, pour indiquer que l'on va ensuite travailler sur une nouvelle ligne
+        // Pour indiquer que l'on va travailler sur une nouvelle ligne, on augmente index de 1. 
         index++;
         break;
 
       case saisie.SORTIE:
         if (parseInt(quantiteSaisie) > tabCump[index - 1].stkQ) {
-          alert("Vous ne pouvez sortir plus de produits qu'il n'y en a en stock !");
+          alert("Vous ne pouvez sortir plus de produits qu'il n'y en a en stock.");
           break;
         }
 
-        // On remplace l'inuput de quantié par le texte contenant les valeur
+        // Remplacement de l'input quantité par le texte contenant les valeurs.
         $(`#td1_l${index}`).text(`${quantiteSaisie}`);
 
-        // montant en entrée arrondi à deux unités après la virgule
+        // Le montant en entrée est arrondi à deux chiffres après la virgule.
         let valeurSortie = +(parseInt(quantiteSaisie) * parseFloat(coutUnitaireSaisi)).toFixed(2);
         $(`#td3_l${index}`).text(`${valeurSortie}`);
 
-        // On met à jour la quantité en stock
+        // Mise à jour de la quantité en stock.
         let newQuantityOut = tabCump[index - 1].stkQ - parseInt(quantiteSaisie);
 
         let newMontantStockOut = +(newQuantityOut * parseFloat(coutUnitaireSaisi)).toFixed(2);
 
-        // dans le cas d'une sortie, le cout unitaire reste le même qu'à la ligne précédente, 
-        // donc on l'affiche dès la création de la ligne dans la colonne correspondante en sortie et en stock
+        /* En cas de sortie, le coût unitaire reste le même qu'à la ligne précédente et sera
+        affiché dès la création de la ligne dans la colonne correspondante au sortie et au stock. */
         $(`#td4_l${index}`).text(`${newQuantityOut}`);
         $(`#td6_l${index}`).text(`${newMontantStockOut}`);
 
-        // On remplace le bouton de validation par un bouton de modification
+        // Remplacement du bouton "validation" par un bouton "modification". 
         $(`#act_l${index}`).html(`
           <button id="s_${index}" class="btn btn-danger supprimer">🗑️</button>`);
 
-        // objet représentant la ligne créé, que l'on va pousser dans notre tableau
+        // Objet représentant la ligne créé, que l'on va pousser dans notre tableau.
         let newSortie = {
           type: saisie.SORTIE,
           eQ: 0,
@@ -169,26 +171,26 @@ $('table').on('click', '.valider', function () {
         }
         tabCump.push(newSortie);
 
-        // on passe l'edit à false car on considère qu'on a fini de travailler sur la ligne en appuyant sur valider
+        // En appuyant sur "valider", edit passe à false car le travail sur la ligne est terminé.
         editOn = false;
 
-        // on augmente l'index de 1, pour indiquer que l'on va ensuite travailler sur une nouvelle ligne
+        // Pour indiquer que l'on va travailler sur une nouvelle ligne, on augmente index de 1. 
         index++;
         break;
 
       default:
-        alert("Vous n'êtes pas censé voir ce message !");
+        alert("Vous n'êtes pas censé voir ce message.");
     }
   } else {
-    alert('Veuillez remplir le(s) champ(s) avant de valider.');
+    alert("Veuillez remplir le(s) champ(s) avant de valider.");
   }
 });
 
-// Lorsque l'on clique sur le bouton pour ajouter une nouvelle entrée, on va créer une nouvelle ligne avec
-// des champs de saisies dans les colonnes dédiées.
+/* En utilisant le bouton pour ajouter une nouvelle entrée, 
+on crée une nouvelle ligne avec des champs de saisies dans les colonnes dédiées. */
 $('#new-entree').on('click', function () {
   if (!editOn) {
-    // on retire le bouton de suppression de la ligne précédente.
+    // Retrait du bouton "suppression" de la ligne précédente.
     $(`#s_${index - 1}`).remove();
 
     editOn = true;
@@ -210,15 +212,15 @@ $('#new-entree').on('click', function () {
     </tr>
   `);
   } else {
-    alert('Veuillez finir de compléter la ligne avec des champs de saisie avant de créer une nouvelle entrée.');
+    alert("Veuillez compléter les champs de saisie avant de créer une nouvelle entrée.");
   }
 });
 
-// Lorsque l'on clique sur le bouton pour ajouter une nouvelle entrée, on va créer une nouvelle ligne avec
-// des champs de saisies dans les colonnes dédiées.
+/* En utilisant le bouton pour ajouter une nouvelle entrée, 
+on crée une nouvelle ligne avec des champs de saisies dans les colonnes dédiées. */
 $('#new-sortie').on('click', function () {
   if (!editOn) {
-    // on retire le bouton de suppression de la ligne précédente.
+    // Retrait du bouton "suppression" de la ligne précédente.
     $(`#s_${index - 1}`).remove();
 
     editOn = true;
@@ -240,47 +242,45 @@ $('#new-sortie').on('click', function () {
     </tr>
   `);
   } else {
-    alert('Veuillez finir de compléter la ligne avec des champs de saisie avant de créer une nouvelle sortie.');
+    alert("Veuillez compléter les champs de saisie avant de créer une nouvelle sortie.");
   }
 });
 
-// Pour un élément comme les boutons de confirmation et de validation qui sont générés 
-// par le biais de JQuery, on ne peut agir sur eux qu'à partir d'un parent déjà existant dans le DOM.
-// On doit donc utiliser .on avec ce parent plutôt que de sélectionner directement l'élément généré.
+/* Pour des éléments, tels que les boutons "confirmation" et "validation", générés
+par le biais de JQuery, on ne peut agir sur eux qu'à partir d'un parent déjà existant dans le DOM.
+Plutôt que de sélectionner directement l'élément généré. On utilise .on avec ce parent. */
 $('table').on('click', '.modifier', function () {
   console.log('modification....');
-  // TODO: implémenter plus tard la modification
+  // TODO: Implémenter plus tard la modification.
 });
 
-// Actions lorsque l'on clique sur le bouton de suppression d'une ligne (seule la dernière peut être supprimée)
+// Seule la dernière ligne est supprimée si le bouton "suppression" est sélectionné.  
 $('table').on('click', '.supprimer', function () {
-  // on récupère l'id du bouton de suppression, juste pour avoir le numéro de ligne / l'index 
+  // Récupèration de id du bouton "suppression", pour avoir le numéro de ligne / l'index.  
   let idRowToDelete = $(this).attr('id');
   let splitString = idRowToDelete.split('_');
   let id = splitString[1];
 
-  // On doit prévoir la suppression selon deux cas : si la ligne était en cours d'édition ou non.
-  // Si la ligne n'était pas en cours d'édtion, elle a été validée et on avait placé notre index à +1
-  // La ligne à supprimer est donc à l'index actuel -1 et on doit retirer l'élément correspondant dans
-  // notre tableau d'objets.
+  // Prévoir la suppression selon deux cas : si la ligne est en cours d'édition ou non.
+  // Si la ligne n'est pas en cours d'édtion, elle est validée et on place l'index à +1.
+  // La ligne à supprimer est donc à l'index actuel -1 et on doit retirer l'élément correspondant dans notre tableau d'objets.
   // En plus de cela, on vérifie que que l'index est cohérent avec la ligne que l'on va supprimer.
   if (!editOn && id == (index - 1)) {
     $(`#l${index - 1}`).remove();
     tabCump.splice(id, 1);
-    // on remet le bouton de suppression à la ligne précédente
+    // Remettre le bouton "suppression" à la ligne précédente. 
     $(`#m_${index - 2}`).after(`<button id="s_${index - 2}" class="btn btn-danger supprimer" style="margin-left: 5px;">🗑️</button>`)
-    // on réduit l'index de suppression
+    // Réduction de l'index "suppression". 
     index--;
   } else if (editOn && id == index) {
-    // sinon, on était en cours d'édition, on retire la ligne à l'index actuel et on repasse l'édition à false
+    // Sinon, si la ligne est en cours d'édition, on la retire à l'index actuel et on repasse édit à false. 
     $(`#l${index}`).remove();
     editOn = false;
-    // on remet le bouton de suppression
+    // Remettre le bouton de "suppression" à la ligne précédente. 
     $(`#m_${index - 1}`).after(`<button id="s_${index - 1}" class="btn btn-danger supprimer" style="margin-left: 5px;">🗑️</button>`)
 
   } else {
-    // Cas peu probable où l'utilisateur aurait manipulé l'id des boutons de suppression
-    // en modifiant l'HTML via l'inspecteur.
+        // Cas où l'utilisateur manipule l'id des boutons de suppression, en modifiant l'HTML via l'inspecteur.
     alert("Vous avez manipulé manipulé quelque chose que vous n'auriez pas dû... Arrêtez de faire n'importe quoi !")
   }
 });

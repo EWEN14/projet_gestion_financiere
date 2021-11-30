@@ -1,4 +1,5 @@
 <?php
+/*Projet MEJK/UNC MIAGE/Méthode agile/index*/ 
 require 'functions\utils.php';
 require 'data\DataBase.php';
 init_session();
@@ -81,7 +82,7 @@ if (isset($_POST['valid_connection'])) {
 
 							<?php if (!is_logged()) : ?>
 								<li class="nav-item">
-									<a class="navbar-link" href="inscription.php">inscription</a>
+									<a class="navbar-link" href="inscription.php">Inscription</a>
 								</li>
 							<?php endif; ?>
 						</ul>
@@ -89,7 +90,7 @@ if (isset($_POST['valid_connection'])) {
 				</div>
 				<?php if (is_logged()) : ?>
 					<div class="options">
-						<a class="px-3" href="changementMDP.php">Changer MDP</a>
+						<a class="px-3" href="changementMDP.php">Mot de passe oublié ?</a>
 						<a href="index.php?action=logout"><i class="bi bi-door-open-fill" style="font-size: 2rem; color: #eb984e;"></i></a>
 					</div>
 		</div>
@@ -103,7 +104,7 @@ if (isset($_POST['valid_connection'])) {
 		<div class="row">
 			<h2 class="text-center text-secondary">Bienvenue sur l'application MEJK</h2>
 			<?php if (is_logged()) : ?>
-				<h3 class="text-center text-primary">Bienvenue <?= htmlspecialchars($_SESSION['username']) ?></h3>
+				<h3 class="text-center text-primary">Comment allez-vous <?= htmlspecialchars($_SESSION['username']) ?> ?</h3>
 			<?php endif; ?>
 		</div>
 	</div>

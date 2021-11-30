@@ -1,4 +1,5 @@
 <?php
+/*Projet MEJK/UNC MIAGE/Méthode agile/memoire*/ 
 /*
   Hash : A -> B.
   password_get_info($hash) -> array.
