@@ -1,5 +1,5 @@
 <?php
-/*Projet MEJK/UNC MIAGE/Méthode agile/index*/ 
+/*Projet MEJK/UNC MIAGE/Méthode agile/index*/
 require 'functions\utils.php';
 require 'data\DataBase.php';
 init_session();
@@ -43,12 +43,15 @@ if (isset($_POST['valid_connection'])) {
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Accueil de l'application MEJK.">
 	<title>Accueil</title>
-	
-	<link href="../css/main.css" rel="stylesheet">
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/x-icon" href="../img/miage-icon.png">
 
 	<!-- Bootstrap core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+
+	<link href="../css/main.css" rel="stylesheet">
 
 	<!-- Bootstrap core JS -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
@@ -105,6 +108,53 @@ if (isset($_POST['valid_connection'])) {
 			<h2 class="text-center text-secondary">Bienvenue sur l'application MEJK</h2>
 			<?php if (is_logged()) : ?>
 				<h3 class="text-center text-primary">Comment allez-vous <?= htmlspecialchars($_SESSION['username']) ?> ?</h3>
+
+				<div class="row row-features">
+					<div class="col-lg-6 col-md-12 feature">
+						<a href="../seuilrentabilite.html">
+							<div class="feature-element">
+								<div><img class="icone" src="../img/sustainable.png"></div>
+								<div>Calcul de Seuil de Rentabilité</div>
+							</div>
+						</a>
+					</div>
+
+					<div class="col-lg-6 col-md-12 feature">
+						<a href="../cump.html">
+							<div class="feature-element">
+								<div><img class="icone" src="../img/stock.png"></div>
+								<div>Calcul du Coût Unitaire Moyen Pondéré</div>
+							</div>
+						</a>
+					</div>
+				</div>
+
+				<h4>Vos derniers calculs</h4>
+
+				<table class="table table-hover table-sm align-middle table-responsive-sm text-secondary`">
+					<thead>
+						<tr class="text-secondary text-center align-middle">
+							<th scope="row">Prix de Vente HT du produit (PV)</th>
+							<th scope="row">Chiffre d'Affaires (CA)</th>
+							<th scope="row">Charges Variables (CV)</th>
+							<th scope="row">Marges Sur Coût Variable (MSCV)</th>
+							<th scope="row">Taux de Marge Sur Coût Variable (TMSCV)</th>
+							<th scope="row">Charges Fixes (CF)</th>
+							<th scope="row">Résultat</th>
+							<th scope="row">Seuil de Rentabilité en valeur (SR val)</th>
+							<th scope="row">Seuil de Rentabilité en volume (SR vol)</th>
+						</tr>
+					</thead>
+					<tbody id="table-body" class="text-secondary display-11">
+
+					</tbody>
+					<tfoot>
+						<tr>
+						</tr>
+					</tfoot>
+				</table>
+
+				<div class="saved-calculs"></div>
 			<?php endif; ?>
 		</div>
 	</div>
@@ -127,18 +177,22 @@ if (isset($_POST['valid_connection'])) {
 						<div class="mt-3">
 							<input type="submit" class="btn btn-primary" name="valid_connection" value="Connexion">
 						</div>
-						<?php 
+						<?php
 						if (isset($erreurMDP)) {
-							echo "<div class='erreurMDP'>".$erreurMDP."</div>";
+							echo "<div class='erreurMDP'>" . $erreurMDP . "</div>";
 							$erreurMDP = null;
 						}
-					?>
+						?>
 				</div>
 				<div class="col align-self-end"></div>
 			</div>
 		</div>
 	<?php endif; ?>
 
+	<!--appel du script de récupération des dernières sauvegardes uniquement si on est connecté-->
+	<?php if (is_logged()) : ?>
+		<script src="../js/accueilLastSaves.js"></script>
+	<?php endif; ?>
 </body>
 
 </html>

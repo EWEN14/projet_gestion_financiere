@@ -48,7 +48,6 @@ class Database
   public function createUser($username, $password)
   {
     try {
-      $users = new ArrayObject();
       $requeteSQL = 'INSERT INTO users (user_name,user_password,user_registerDate,user_admin) VALUES("' . $username . '","' . $password . '",now(),0)';
       $req = $this->_PDO->prepare($requeteSQL);
       $req->execute();
@@ -70,12 +69,17 @@ class Database
     }
   }
 
-  public function recupereCalcul($userID)
+  public function recupereCalcul($userID, $isLimited)
   {
     if (!empty($userID) && isset($userID)) {
       try {
-        $req = $this->_PDO->prepare('
+        if ($isLimited == true) {
+          $req = $this->_PDO->prepare('
+                    SELECT * FROM seuil_renta_php WHERE user_id = ' . $userID . ' ORDER BY id ASC LIMIT 5');
+        } else {
+          $req = $this->_PDO->prepare('
                     SELECT * FROM seuil_renta_php WHERE user_id = ' . $userID . ' ORDER BY id ASC');
+        }
         $req->execute();
         $value = $req->fetchAll(PDO::FETCH_OBJ);
         if ($value) {
@@ -92,7 +96,8 @@ class Database
   public function modifMDP($newMDP, $userID)
   {
     try {
-      $req = $this->_PDO->prepare('UPDATE users SET user_password = ' . $newMDP . ' WHERE user_name = "' . $userID . '"');
+      $req = $this->_PDO->prepare('UPDATE users SET user_password = "' . $newMDP . '" WHERE id = ' . $userID . '');
+      $req->execute();
     } catch (PDOException $pe) {
       echo 'ERREUR : ' . $pe->getMessage();
     }

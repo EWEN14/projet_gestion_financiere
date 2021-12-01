@@ -7,4 +7,23 @@ table input {
   cursor: pointer;
 }
 
+.reset-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#reset {
+  color: #0078D7;
+  width: 120px;
+}
+
+#reset:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.btn-warning {
+  color: #515151;
+}
+
 

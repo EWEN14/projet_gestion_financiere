@@ -16,7 +16,7 @@ function clean_session(): void {
 }
 
 function is_admin() : bool{
-  $logged;
+  $logged = true;
   if (isset($_SESSION['rank']) && isset($_SESSION['username']) && !empty($_SESSION['username'] && $_SESSION['rank'] == '1')) {
     $logged = true;
   }else {
@@ -26,7 +26,7 @@ function is_admin() : bool{
 }
 
 function is_logged(): bool {
-  $logged;
+  $logged = true;
   if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
     $logged = true;
   }else {

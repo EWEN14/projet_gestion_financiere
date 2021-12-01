@@ -8,6 +8,6 @@ init_session();
 
 $base = new Database();
 
-$calculs = json_encode($base->recupereCalcul($_SESSION['idUser'], false), JSON_PRETTY_PRINT | JSON_FORCE_OBJECT);
+$calculs = json_encode($base->recupereCalcul($_SESSION['idUser'], true), JSON_PRETTY_PRINT | JSON_FORCE_OBJECT);
 
 echo $calculs;

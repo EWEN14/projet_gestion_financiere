@@ -1,7 +1,3 @@
-* {
-  transition: all 0.5s;
-}
-
 .options {
   display: flex;
   min-width: 170px;
@@ -12,4 +8,45 @@
 .erreurMDP {
   color: red;
   font-weight: bold;
+}
+
+.row-features{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.feature {
+  text-align: center;
+}
+
+.feature a {
+  text-decoration: none;
+}
+
+.feature-element:hover {
+  cursor: pointer;
+}
+
+.feature:hover .icone {
+  width: 115px;
+}
+
+.feature-element {
+  margin: auto;
+  border-radius: 15px 5px;
+  background-color: #ffd59d;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding-top: 10px;
+  width: 95%;
+  font-style: italic;
+}
+
+.icone {
+  width: 100px;
+}
+
+img {
+  transition: all 0.5s;
 }

@@ -27,8 +27,11 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Accueil de l'application MEJK.">
-	<title>Accueil</title>
+	<meta name="description" content="Page d'inscription à l'application MEJK.">
+	<title>Inscription</title>
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/x-icon" href="../img/miage-icon.png">
 
 	<!-- Bootstrap core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet">

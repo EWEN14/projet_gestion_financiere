@@ -1,5 +1,4 @@
 //Projet MEJK/UNC MIAGE/Méthode agile/cump
-// TODO: Retirer plus tard les values dans les inputs créés.
 
 // Tableau contenant les objets représentant chaque ligne. 
 let tabCump = [];
@@ -130,8 +129,13 @@ $('table').on('click', '.valider', function () {
         break;
 
       case saisie.SORTIE:
+        // alerte si on essaie de sortir plus de produit que ce qu'il y a.
         if (parseInt(quantiteSaisie) > tabCump[index - 1].stkQ) {
           alert("Vous ne pouvez sortir plus de produits qu'il n'y en a en stock.");
+          break;
+        } // alerte si on essaie de sortir un nombre de produit nul ou négatif 
+        else if (parseInt(quantiteSaisie) <= 0) {
+          alert("Vous ne pouvez pas sortir un nombre de produits nul ou négatif !");
           break;
         }
 
@@ -196,10 +200,10 @@ $('#new-entree').on('click', function () {
     editOn = true;
     saisieEnCours = saisie.ENTREE;
     $('.ajout').before(`
-    <tr id="l${index}">
+    <tr id="l${index}" class='new-line'>
       <td class="text-left align-middle">Entrée</td>
-      <td class="align-middle" id="td1_l${index}"><input id="i1_l${index}" type="number" min="0" name="quantite" placeholder="ex : 100" value="100"></td>
-      <td class="align-middle" id="td2_l${index}"><input id="i2_l${index}" type="number" min="0" name="coutunitaire" placeholder="ex : 45" value="45"></td>
+      <td class="align-middle" id="td1_l${index}"><input id="i1_l${index}" type="number" min="0" name="quantite" placeholder="ex : 100"></td>
+      <td class="align-middle" id="td2_l${index}"><input id="i2_l${index}" type="number" min="0" name="coutunitaire" placeholder="ex : 45"></td>
       <td class="align-middle" id="td3_l${index}"></td>
       <td colspan="3"></td>
       <td class="align-middle" id="td4_l${index}"></td>
@@ -226,7 +230,7 @@ $('#new-sortie').on('click', function () {
     editOn = true;
     saisieEnCours = saisie.SORTIE;
     $('.ajout').before(`
-    <tr id="l${index}">
+    <tr id="l${index}" class='new-line'>
       <td class="text-left align-middle">Sortie</td>
       <td colspan="3"></td>
       <td class="align-middle" id="td1_l${index}"><input id="i1_l${index}" type="number" min="0" max="${tabCump[index - 1].stkQ}" name="quantite" placeholder="max: ${tabCump[index - 1].stkQ}"></td>
@@ -251,7 +255,7 @@ par le biais de JQuery, on ne peut agir sur eux qu'à partir d'un parent déjà 
 Plutôt que de sélectionner directement l'élément généré. On utilise .on avec ce parent. */
 $('table').on('click', '.modifier', function () {
   console.log('modification....');
-  // TODO: Implémenter plus tard la modification.
+  // TODO: implémenter plus tard la modification si on a le temps...
 });
 
 // Seule la dernière ligne est supprimée si le bouton "suppression" est sélectionné.  
@@ -283,4 +287,24 @@ $('table').on('click', '.supprimer', function () {
         // Cas où l'utilisateur manipule l'id des boutons de suppression, en modifiant l'HTML via l'inspecteur.
     alert("Vous avez manipulé manipulé quelque chose que vous n'auriez pas dû... Arrêtez de faire n'importe quoi !")
   }
+});
+
+// Actions lorsque l'on appuie sur le texte de réinitalisation
+$('#reset').on('click', function() {
+  // On ramène l'index à 1
+  index = 1;
+  // On vide notre tableau qui sauvegardait les données de chaque ligne
+  tabCump = [];
+  // On retire les nouvelles lignes (donc toutes sauf stock initial)
+  $('.new-line').remove();
+  // On change la ligne du stock initial pour qu'on puisse rentrer de nouvelles valeurs dans celui-ci
+  $('#l1').html(`
+    <td class="align-middle">Stock Initial</td>
+		<td colspan="6"></td>
+		<td class="align-middle" id="td1_l1"><input id="i1_l1" type="number" min="0" name="quantite"
+							placeholder="ex : 100"></td>
+		<td class="align-middle" id="td2_l1"><input id="i2_l1" type="number" min="0" name="coutunitaire"
+							placeholder="ex : 50"></td>
+		<td class="align-middle" id="td3_l1"></td>
+		<td class="align-middle act" id="act_l1"><button class="btn btn-success valider">✔️</button></td>`)
 });

@@ -10,6 +10,9 @@
 
 	<title>Coût Unitaire Moyen Pondéré</title>
 
+	<!-- Favicon -->
+	<link rel="icon" type="image/x-icon" href="img/miage-icon.png">
+
 	<!-- Bootstrap core CSS -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
@@ -66,7 +69,6 @@
 			</ul>
 		</nav>
 
-		<!-- TODO : Retirer les values des inputs en fin de projet -->
 		<table class="table table-hover table-sm align-middle table-responsive-sm text-center text-secondary">
 			<thead class="thead-dark">
 				<tr>
@@ -95,9 +97,9 @@
 					<td class="align-middle">Stock Initial</td>
 					<td colspan="6"></td>
 					<td class="align-middle" id="td1_l1"><input id="i1_l1" type="number" min="0" name="quantite"
-							placeholder="ex : 100" value="100"></td>
+							placeholder="ex : 100"></td>
 					<td class="align-middle" id="td2_l1"><input id="i2_l1" type="number" min="0" name="coutunitaire"
-							placeholder="ex : 50" value="50"></td>
+							placeholder="ex : 50"></td>
 					<td class="align-middle" id="td3_l1"></td>
 					<td class="align-middle act" id="act_l1"><button class="btn btn-success valider">✔️</button></td>
 				</tr>
@@ -113,6 +115,10 @@
 				</tr>
 			</tbody>
 		</table>
+
+		<div class="reset-container">
+			<div id="reset">Réinitialiser 🔄</div>
+		</div>
 	</div>
 
 	<script src="js/jquery-3.6.0.min.js"></script>
