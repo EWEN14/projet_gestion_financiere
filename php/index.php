@@ -98,10 +98,7 @@ if (isset($_POST['valid_connection'])) {
 								</li>
 							<?php endif; ?>
 							
-							<?php if (is_logged()) : ?>
-								<li class="nav-item dropdown">
-									<a class="nav-link" href="changementMDP.php">password</a>
-								</li>							
+							<?php if (is_logged()) : ?>						
 								<li class="nav-item dropdown">
 									<a class="nav-link" href="../aide.html">Aide</a>
 								</li>
