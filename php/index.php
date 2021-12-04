@@ -58,7 +58,16 @@ if (isset($_POST['valid_connection'])) {
 	</script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
 	</script>
-	<script src="../js/jquery-3.6.0.min.js"></script>
+	
+	<!-- menu -->
+	<link href="css/navbar.css" rel="stylesheet">
+	<script src="js/jquery-3.6.0.min.js" rel="stylesheet"></script>
+	
+    <script> 
+		$(function(){
+		  $("#menu").load("./menu.html"); 
+		});
+    </script> 
 
 </head>
 
@@ -88,16 +97,29 @@ if (isset($_POST['valid_connection'])) {
 									<a class="navbar-link" href="inscription.php">Inscription</a>
 								</li>
 							<?php endif; ?>
+							
+							<?php if (is_logged()) : ?>
+								<li class="nav-item dropdown">
+									<a class="nav-link" href="changementMDP.php">password</a>
+								</li>							
+								<li class="nav-item dropdown">
+									<a class="nav-link" href="../aide.html">Aide</a>
+								</li>
+							<?php endif; ?>
 						</ul>
 					</div>
 				</div>
 				<?php if (is_logged()) : ?>
 					<div class="options">
-						<a class="px-3" href="changementMDP.php">Mot de passe oublié ?</a>
-						<a href="index.php?action=logout"><i class="bi bi-door-open-fill" style="font-size: 2rem; color: #eb984e;"></i></a>
+						<div class="col-sm-9">
+							<a class="nav-link" href="php/changementMDP.php">mot de passe oublié</a>
+						</div>
+						<div class="col-sm-3">
+							<a href="index.php?action=logout"><i class="bi bi-door-open-fill" style="font-size: 2rem; color: #eb984e;"></i></a>
+						</div>
 					</div>
+				<?php endif; ?>			
 		</div>
-	<?php endif; ?>
 	</nav>
 	</div>
 	</div>
