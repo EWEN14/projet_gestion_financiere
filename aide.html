@@ -1,0 +1,352 @@
+<!--Projet MEJK/UNC MIAGE/Méthode agile/Sauvegarde du Seuil de rentabilité-->
+<!DOCTYPE html>
+<br><html lang="fr">
+
+<br><head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Calcul du seuil de rentabilité en valeur et en volume.">
+
+  <title>Aide</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="img/miage-icon.png">
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+  <link href="css/seuilrentabilite.css" rel="stylesheet">
+
+  <!-- Bootstrap core JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
+	
+	<!-- menu -->
+	<link href="css/navbar.css" rel="stylesheet">
+	<script src="js/jquery-3.6.0.min.js" rel="stylesheet"></script>
+	
+    <script> 
+		$(function(){
+		  $("#menu").load("menu.html"); 
+		});
+    </script>
+	
+	<style>
+		#aide-contenu {
+		  overflow-y: auto;
+		  height: 80vh;
+		}		
+	</style>
+</head>
+<body data-bs-spy="scroll" data-bs-offset="15" data-bs-target="#myScrollspy">
+	<div id="menu" class="container"></div>
+
+  <br><h2 class="text-center text-secondary">Aide</h2>
+
+	<div class="container-lg my-2 col-sm-9 text-secondary overflow-auto">
+		<div class="row">
+			<!-- Table des matières -->
+			<div class="col-sm-3">
+					<nav id="navbar-example3" class="navbar navbar-light bg-light flex-column align-items-stretch p-3">
+					  <a class="navbar-brand" href="#">Table des matières</a>
+					  <nav class="nav nav-pills flex-column">
+						<a class="nav-link" href="#inscription">Inscription</a>
+						<a class="nav-link" href="#authentification">Authentification</a>
+						<a class="nav-link" href="#accueil">Accueil</a>
+						<a class="nav-link" href="#calculs">Les calculs</a>
+						<nav class="nav nav-pills flex-column">
+						  <a class="nav-link ms-3 my-1" href="#rentabilite">Calcul de seuil de rentabilité</a>
+						  <a class="nav-link ms-3 my-1" href="#cump">Calcul de coût unitaire pondéré</a>
+						</nav>
+						<a class="nav-link" href="#password">Changement de mot de passe</a>
+						<a class="nav-link" href="#quitte">Se déconnecter</a>
+						</nav>
+					  </nav>
+					</nav>			
+			</div>
+			
+			<!-- Contenu de l'aide -->
+			<div id="aide-contenu" class="col-sm-9" data-bs-spy="scroll" data-bs-target="#aide" data-bs-offset="0" tabindex="0">
+
+			<!-- Inscription -->  
+				<br><h3 id="inscription">Inscription</h3>
+				<table>
+					<tr>
+						<td>
+						  <p>Lors de la première connexion vous devez vous inscrire pour accéder à l’application. </p>
+						  <p>Pour cela cliquez sur le lien dans le menu du haut « inscription » (cf. capture ci-contre).</p>
+						  <p>Vous êtes redirigé vers la page d’inscription à l’application (cf. capture ci-dessous). </p>
+						</td>
+						<td>
+							<img src="img/menu - accueil.png"/>
+						</td>
+					</tr>
+					<tr>
+					<td colspan="2">
+							<img src="img/créer compte.png"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						  <p>Saisissez un identifiant et un mot de passe. Il vous est demandé de saisir deux fois votre mot de passe 
+						  <p>afin d’éviter les erreurs de saisie, puis cliquez sur le bouton « Valider » </p>
+						  <p>Vous êtes redirigé sur la page d’accueil pour vous identifier (cf. capture ci-dessous).
+						</td>
+						<td>
+							<img src="img/bouton valider.png"/>
+						</td>
+					</tr>
+				</table>
+
+
+			<!-- Authentification -->  
+				<br><h3 id="authentification">Authentification</h3>
+				<table>
+					<tr>
+					<td colspan="2">
+							<p>Pour accéder à l’application vous devez vous identifier.</p>
+							<p>Pour cela, saisissez l’identifiant et le mot de passe que vous avez saisis lors de votre inscription (cf. capture ci-dessous).</p>
+				  
+						</td>
+					</tr>
+					<tr>
+					<td colspan="2">
+							<img src="img/authentification.png" width="80%" height="80%"/>
+						</td>
+					</tr>
+					<tr>
+						<td width="40%">
+						  <p>Puis cliquez sur le bouton « Connexion » </p>
+						  <p>Vous êtes redirigé sur la page d’accueil</p>
+						</td>
+						<td>
+							<img src="img/bouton connexion.png"/>
+						</td>
+					</tr>
+				</table>
+
+			<!-- Accueil -->	  
+				<br><h3 id="accueil">Accueil</h3>
+				<table>
+					<tr>
+						<td colspan="2"><img src="img/accueil.png" width="80%" height="80%" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><p>La page d’accueil affiche vos derniers calculs.</p></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<br><h4 id="menu">Menu</h4>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						  <p>Accueil</p>
+						</td>
+						<td>
+						  <p>Revenir à l’accueil</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>Seuil de rentabilité</p>
+						</td>
+						<td>
+							<p>Aller à la page de calcul du seuil de rentabilité</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						  <p>CUMP</p>
+						</td>
+						<td>
+							<p>Aller à la page de calcul du coût unitaire moyen pondéré</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						  <p>Password</p>
+						</td>
+						<td>
+							<p>Aller à la page de changement du mot de passe</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>Aide</p>
+						</td>
+						<td>
+							<p>Aller à la page d’aide</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="img/quitter.png"/>
+						</td>
+						<td>
+							<p>Se déconnecter de l’application</p>
+						</td>
+					</tr>
+				</table>			  
+			  
+			<!-- Calculs -->
+				<br><br><h1 id="calculs">Les calculs</h3>
+				  <table>
+					<tr>
+						<td colspan="2"><br><h4 id="rentabilite">Calcul de seuil de rentabilité</h4></td>
+					</tr>	
+					<tr>
+						<td colspan="2"><img src="img/seuil.png" width="80%" height="80%" /></td>
+					</tr>	
+					<tr>
+						<td colspan="2"><p>Pour effectuer un calcul, saisissez le « Prix de vente… », le « Chiffe d’Affaire… », les « Charges Variables… » et les « Charges Fixes… »</p></td>
+					</tr>	
+					<tr>
+						<td width="50%" ><p>Puis cliquez sur le bouton « Calculer ». </p></td>
+						<td><img src="img/bouton calculer actif.png"/></td>
+					</tr>	
+					  
+					<tr>
+						<td><p>Ce dernier devient inactif lorsque le calcul a été effectué.</p></td>
+						<td><img src="img/bouton calculer inactif.png"/></td>
+					</tr>		
+					<tr>
+						<td colspan="2"><br><h5>SAUVEGARDE</h5></td>
+					</tr>	
+					<tr>
+						<td><p>Pour sauvegarder votre calcul, cliquez sur le bouton.</p></td>
+						<td><img src="img/bouton sauvegarder actif.png"/></td>
+					</tr>	
+					  
+					<tr>
+						<td><p>Ce dernier devient inactif lorsque la sauvegarde a été effectué.</p></td>
+						<td><img src="img/bouton sauvegarder inactif.png"/></td>
+					</tr>	
+					<tr>
+						<td colspan="2"><p>Pour accéder aux calculs sauvegardés, clique sur l’onglet « Calculs Sauvegardés »</p></td>
+					</tr>	
+					<tr>
+						<td colspan="2"><img src="img/sauvegardes.png" width="80%" height="80%" /></td>
+					</tr>
+				</table>
+				
+			<!-- Calcul de coût unitaire pondéré -->
+				<br><h4 id="cump">Calcul de coût unitaire pondéré</h4>
+				
+				<!-- Stock initial -->
+				<br><h5>STOCK INITIAL</h5>
+				<table>
+					<tr>
+						<td colspan="2"><img src="img/stock initial.png" width="80%" height="80%" /></td>
+					</tr>
+					<tr>
+						<td width="75%" ><p>Vous devez en premier saisir un stock initial, puis cliquez sur le bouton vert pour enregistrer la ligne.</p></td>
+						<td><img src="img/coche valider.png" width="20%" height="20%" /></td>
+					</tr>
+					<tr>
+						<td colspan="2" class="text-warning"><p>Si le stock initial est inexistant saisissez des 0 pour chaque valeur</p></td>
+					</tr>
+					<tr>
+						<td colspan="2"><img src="img/stock initial validé.png" width="80%" height="80%" /></td>
+					</tr>
+					<tr>
+				</table>
+				
+				<br><h5>ENTREE</h5></td>
+				<table>
+					<tr>
+						<td colspan="2"><p>Pour saisir une entrée vous devez cliquer sur le bouton « + Nouvelle entrée ». </p></td>
+					</tr>
+					<tr>
+						<td width="35%" ><p>Une ligne de saisie apparaît. </p>
+							<p>Saisissez la « Quantité » et le « Coût Unitaire ». </p>
+							<p>Puis validez la ligne</p></td>
+						<td><img src="img/coche valider.png" width="8%" height="8%" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><img src="img/entrée.png" width="80%" height="80%" /></td>
+					</tr>
+					<tr>
+						<td><img src="img/coche valider.png" width="16%" height="16%" /></td>
+						<td><p>Valider la ligne saisie.</p></td>
+					</tr>
+					<tr>
+						<td><img src="img/poubelle.png" width="16%" height="16%" /></td>
+						<td><p>Supprimer la ligne en cours de saisie ou la dernière ligne saisie</p></td>
+					</tr>
+					<tr><td><p>Si vous cliquez sur l’un des boutons pour saisir une nouvelle ligne, le message suivant apparaîtra pour vous signalez que vous devez sortir de la saisie soit en validant soit en supprimant la ligne actuelle.</p>				</td>
+						<td><img src="img/erreur.png"/></td>
+					</tr>
+				</table>
+
+				<br><h5>SORTIE</h5>
+				<table>
+					<tr>
+						<td colspan="2"><p>Pour saisir une sortie vous devez cliquer sur le bouton « + Nouvelle sortie ». </p></td>
+					</tr>
+					<tr>
+						<td width="35%" ><p>Une ligne de saisie apparaît. </p>
+							<p>Saisissez la « Quantité » et le « Coût Unitaire ». </p>
+							<p>Puis validez la ligne</p></td>
+						<td><img src="img/coche valider.png" width="8%" height="8%" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><img src="img/sortie.png" width="80%" height="80%" /></td>
+					</tr>
+					<tr>
+						<td><img src="img/coche valider.png" width="16%" height="16%" /></td>
+						<td><p>Valider la ligne saisie.</p></td>
+					</tr>
+					<tr>
+						<td><img src="img/poubelle.png" width="16%" height="16%" /></td>
+						<td><p>Supprimer la ligne en cours de saisie ou la dernière ligne saisie</p></td>
+					</tr>
+					<tr><td><p>Si vous cliquez sur l’un des boutons pour saisir une nouvelle ligne, le message suivant apparaîtra pour vous signalez que vous devez sortir de la saisie soit en validant soit en supprimant la ligne actuelle.</p>				</td>
+						<td><img src="img/erreur.png"/></td>
+					</tr>
+				</table>
+
+				<br><h5>REINITIALISATION DU TABLEAU</h5>
+				<table>
+					<tr>
+						<td><p>Pour réinitialiser le tableau cliquez sur le bouton « Réinitialiser »</p></td>
+						<td><img src="img/réinitialiser.png"/></td>
+					</tr>
+				</table> 				  
+				  
+				  
+			<!-- Changer le mot de passe -->  
+			    <br><h3 id="password">Changement de mot de passe</h3>
+				<table>
+					<tr>
+						<td colspan="2"><p>Pour changer votre mot de passe cliquez sur « Password » dans le menu du haut.</p></td>
+					</tr>
+					<tr>
+						<td colspan="2"><img src="img/changer password.png" width="80%" height="80%" /></td>
+					</tr>
+					<tr>
+						<td><p>Il faut est demandé de changer deux fois votre mot de passe pour éviter les erreurs de saisie.</p>
+							<p>Puis cliquez sur le bouton « Valider » </p></td>
+						<td><img src="img/bouton valider.png"/></td>
+					</tr>
+				</table> 	
+				  
+			
+			<!-- Se déconnecter -->			
+			    <br><h3 id="quitte">Se déconnecter</h3>
+				<table>
+					<tr>
+						<td><p>Pour se déconnecter de l’application, cliquez sur le bouton le bouton </p>	</td>
+						<td><img src="img/quitter.png"/></td>
+					</tr>
+				</table>   
+			</div>
+		</div>
+	</div>
+</body>
+</html>                            
