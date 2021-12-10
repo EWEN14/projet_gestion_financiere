@@ -35,7 +35,7 @@ if (isset($_POST['valid'])) {
   <title>Seuil de Rentabilité</title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="img/miage-icon.png">
+  <link rel="icon" type="image/x-icon" href="img/mejk-icon.png">
 
   <!-- Bootstrap core CSS -->
   <link href="../css/bootstrap.min.css" rel="stylesheet">

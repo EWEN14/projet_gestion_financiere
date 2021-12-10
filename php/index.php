@@ -45,7 +45,7 @@ if (isset($_POST['valid_connection'])) {
 	<title>Accueil</title>
 
 	<!-- Favicon -->
-	<link rel="icon" type="image/x-icon" href="../img/miage-icon.png">
+	<link rel="icon" type="image/x-icon" href="../img/mejk-icon.png">
 
 	<!-- Bootstrap core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -109,7 +109,7 @@ if (isset($_POST['valid_connection'])) {
 				<?php if (is_logged()) : ?>
 					<div class="options">
 						<div class="col-sm-9">
-							<a class="nav-link" href="php/changementMDP.php">mot de passe oublié</a>
+							<a class="nav-link" href="php/changementMDP.php">Mot de passe oublié</a>
 						</div>
 						<div class="col-sm-3">
 							<a href="index.php?action=logout"><i class="bi bi-door-open-fill" style="font-size: 2rem; color: #eb984e;"></i></a>
