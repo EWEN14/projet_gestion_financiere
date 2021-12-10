@@ -32,7 +32,7 @@ if (isset($_POST['valid'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Calcul du seuil de rentabilité en valeur et en volume.">
 
-  <title>Seuil de Rentabilité</title>
+  <title>Mot de passe oublié ?</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="img/mejk-icon.png">
@@ -63,6 +63,12 @@ if (isset($_POST['valid'])) {
 
 <body>
 	<div id="menu" class="container"></div>
+
+	<div class="container">
+		<div class="row">
+			<h2 class="text-center text-secondary">Changer de mot de passe</h2>
+		</div>
+	</div>
 	
 	<div class="container align-items-center">
 		<div class="row align-self-center">
@@ -80,7 +86,7 @@ if (isset($_POST['valid'])) {
 						<div class="col-sm-6"><input type="password" name="form_password" placeholder="Mot de passe..."></div>
 					</div>
 					<div class="row align-items-center">
-						<label for="exampleInputPassword1" class="col-sm-6 col-form-label">Pour confirmation :</label>						
+						<label for="exampleInputPassword1" class="col-sm-6 col-form-label">Confirmer mot de passe :</label>						
 						<div class="col-sm-6"><input type="password" name="form_verifPassword" placeholder="Mot de passe..."></div>
 					</div>
 					<br>

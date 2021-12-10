@@ -46,22 +46,24 @@
 <body data-bs-spy="scroll" data-bs-offset="15" data-bs-target="#myScrollspy">
 	<div id="menu" class="container"></div>
 
-	<h2 class="text-center text-secondary">Aide</h2>
+	<h2 class="text-center text-secondary">Aide <img src="img/mejk-icon.png" /></h2>
 
 	<div class="container-lg my-2 col-sm-9 text-secondary overflow-auto">
 		<div class="row">
-			<!-- Table des matières -->
+			<!-- Sommaire -->
 			<div class="col-sm-3">
 				<nav id="navbar-example3" class="navbar navbar-light bg-light flex-column align-items-stretch p-3">
-					<a class="navbar-brand" href="#">Table des matières</a>
+					<a class="navbar-brand" href="#">Sommaire</a>
 					<nav class="nav nav-pills flex-column">
 						<a class="nav-link" href="#inscription">Inscription</a>
 						<a class="nav-link" href="#authentification">Authentification</a>
 						<a class="nav-link" href="#accueil">Accueil</a>
-						<a class="nav-link" href="#calculs">Les calculs</a>
+						<nav class="nav nav-pills flex-column">
+							<a class="nav-link ms-3 my-1" href="#menu">Menu</a>
+						<a class="nav-link" href="#calculs">Calculs</a>
 						<nav class="nav nav-pills flex-column">
 							<a class="nav-link ms-3 my-1" href="#rentabilite">Calcul de seuil de rentabilité</a>
-							<a class="nav-link ms-3 my-1" href="#cump">Calcul de coût unitaire pondéré</a>
+							<a class="nav-link ms-3 my-1" href="#cump">Calcul de coût unitaire moyen pondéré</a>
 						</nav>
 						<a class="nav-link" href="#password">Changement de mot de passe</a>
 						<a class="nav-link" href="#quitte">Se déconnecter</a>
@@ -80,27 +82,25 @@
 				<table>
 					<tr>
 						<td>
-							<p>Lors de la première connexion vous devez vous inscrire pour accéder à l’application. </p>
-							<p>Pour cela cliquez sur le lien dans le menu du haut « inscription » (cf. capture ci-contre).</p>
-							<p>Vous serez redirigé vers la page d’inscription à l’application (cf. capture ci-dessous). </p>
-						</td>
-						<td>
-							<img src="img/menu - accueil.png" />
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							<img src="img/créer compte.png" />
+							<p> </p>
+							<p>Pour accéder à l’application, lors de la première connexion, l’inscription est nécessaire.</p>
+							<p>Pour cela, cliquez sur le lien <strong>Inscription</strong> dans le menu situé en haut à gauche.</p>
+							<p style="text-align:center"><img src="img/menu - accueil.png" width="30%" height="20%" /></p> 
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<p>Saisissez un identifiant et un mot de passe de votre choix. Il vous est demandé de saisir deux fois
-								votre mot de passe afin d’éviter les erreurs de saisie, puis cliquez sur le bouton « Valider ».</p>
-							<p>Vous serez alors redirigé sur la page d’accueil pour vous identifier (cf. capture ci-dessous).</p>
+							<p>Après avoir été redirigé vers la page d’inscription de l’application, entrez un identifiant et un mot de passe.</p>
+							<p>Afin d’éviter une quelconque erreur de saisie, une confirmation du mot de passe sera demandée.</p>
+							<p style="text-align:center"><img src="img/créer compte.png" width="80%" height="80%" /></p> 
+							<p>Si tous les champs de saisies ont été remplis, cliquez sur le bouton <strong>Valider</strong>.</p>
+							<p style="text-align:center"><img src="img/bouton valider.png" /></p>
 						</td>
+					</tr>
+					<tr>
 						<td>
-							<img src="img/bouton valider.png" />
+							<p>Après avoir appuyé sur <strong>Valider</strong>, vous êtes redirigé sur la page d’accueil.</p>
+							<p style="text-align:center"><img src="img/pageaccueil.PNG" width="80%" height="80%" /></p>
 						</td>
 					</tr>
 				</table>
@@ -112,23 +112,10 @@
 				<table>
 					<tr>
 						<td colspan="2">
-							<p>Pour accéder à l’application vous devez vous identifier.</p>
-							<p>Pour cela, saisissez l’identifiant et le mot de passe que vous avez saisis lors de votre inscription
-								(cf. capture ci-dessous).</p>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							<img src="img/authentification.png" width="80%" height="80%" />
-						</td>
-					</tr>
-					<tr>
-						<td width="40%">
-							<p>Puis cliquez sur le bouton « Connexion ».</p>
-							<p>Vous serez redirigé sur la page d’accueil.</p>
-						</td>
-						<td>
-							<img src="img/bouton connexion.png" />
+							<p>Afin d’accéder à l’application, saisir l’identifiant et le mot de passe, créés lors de l’inscription, dans les champs de saisies.</p>
+							<p style="text-align:center"><img src="img/authentification.png" width="80%" height="80%" /></p>
+							<p>Puis cliquez sur le bouton <strong>Connexion</strong>. Vous serez, alors, redirigé sur la page d’accueil.</p>
+							<p style="text-align:center"><img src="img/bouton connexion.png" /></p>
 						</td>
 					</tr>
 				</table>
@@ -138,12 +125,8 @@
 				<h3 id="accueil">Accueil</h3>
 				<table>
 					<tr>
-						<td colspan="2"><img src="img/accueil.png" width="80%" height="80%" /></td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							<p>La page d’accueil affiche vos derniers calculs.</p>
-						</td>
+						<p>La page d’accueil affiche <strong>Vos derniers calculs</strong>, soit les calculs sauvegardés lors de la dernière connexion. </p>
+						<td colspan="2" style="text-align:center"><img src="img/accueil.png" width="100%" height="11%" /></td>
 					</tr>
 					<tr>
 						<td colspan="2">
@@ -177,18 +160,18 @@
 					</tr>
 					<tr>
 						<td>
-							<p>Mot de passe oublié</p>
-						</td>
-						<td>
-							<p>Aller à la page de changement du mot de passe</p>
-						</td>
-					</tr>
-					<tr>
-						<td>
 							<p>Aide</p>
 						</td>
 						<td>
 							<p>Aller à la page d’aide</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>Mot de passe oublié</p>
+						</td>
+						<td>
+							<p>Aller à la page de changement du mot de passe</p>
 						</td>
 					</tr>
 					<tr>
@@ -203,7 +186,7 @@
 
 				<!-- Calculs -->
 				<br><br>
-				<h1 id="calculs">Les calculs</h3>
+				<h3 id="calculs">Calculs</h3>
 					<table>
 						<tr>
 							<td colspan="2"><br>
@@ -211,212 +194,151 @@
 							</td>
 						</tr>
 						<tr>
-							<td colspan="2"><img src="img/seuil.png" width="80%" height="80%" /></td>
+							<td colspan="2" style="text-align:center"><img src="img/seuil.png" width="100%" height="80%" /></td>
 						</tr>
 						<tr>
 							<td colspan="2">
-								<p>Pour effectuer un calcul, saisissez le « Prix de vente… », le « Chiffe d’Affaires », les « Charges
-									Variables » et les « Charges Fixes »</p>
+								<p>Pour effectuer un calcul, saisir dans la colonne <strong>Calcul</strong> le <strong>Prix de Vente HT du produit (PV)</strong>, le <strong>Chiffre d’Affaires (CA)</strong>, les <strong>Charges Variables (CV)</strong> et les <strong>Charges Fixes (CF)</strong>. Cliquer sur le bouton <strong>Calculer</strong>. </p>
+								<p style="text-align:center"><img src="img/bouton calculer actif.png" /></p>
 							</td>
 						</tr>
-						<tr>
-							<td width="50%">
-								<p>Puis cliquez sur le bouton « Calculer ». </p>
-							</td>
-							<td><img src="img/bouton calculer actif.png" /></td>
-						</tr>
-
 						<tr>
 							<td>
-								<p>Ce dernier devient inactif lorsque le calcul a été effectué.</p>
+								<p>Lorsque le calcul a bien été effectué, le bouton <strong>Calculer</strong> devient inactif.</p>
+								<p style="text-align:center"><img src="img/bouton calculer inactif.png" /></p>
 							</td>
-							<td><img src="img/bouton calculer inactif.png" /></td>
 						</tr>
 						<tr>
 							<td colspan="2"><br>
-								<h5>SAUVEGARDE</h5>
+								<h5>Sauvegarde</h5>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<p>Pour sauvegarder votre calcul, cliquez sur le bouton :</p>
+								<p>Pour sauvegarder un calcul, cliquer sur le bouton <strong>Sauvegarder ce calcul</strong>.</p>
+								<p style="text-align:center"><img src="img/bouton sauvegarder actif.png" /></p>
 							</td>
-							<td><img src="img/bouton sauvegarder actif.png" /></td>
 						</tr>
-
 						<tr>
 							<td>
-								<p>Ce dernier devient inactif lorsque la sauvegarde a été effectuée.</p>
+								<p>Lorsque la sauvegarde a bien été effectuée, le bouton <strong>Sauvegarder ce calcul</strong> devient inactif. </p>
+								<p style="text-align:center"><img src="img/bouton sauvegarder inactif.png" /></p>
 							</td>
-							<td><img src="img/bouton sauvegarder inactif.png" /></td>
 						</tr>
 						<tr>
 							<td colspan="2">
-								<p>Pour accéder aux calculs sauvegardés, cliquez sur l’onglet « Calculs Sauvegardés »</p>
+								<p>Pour accéder aux calculs sauvegardés, cliquer sur l’onglet <strong>Calculs Sauvegardés</strong>.</p>
+								<p style="text-align:center"><img src="img/sauvegardes.png" width="100%" height="90%"/></p>
 							</td>
-						</tr>
-						<tr>
-							<td colspan="2"><img src="img/sauvegardes.png" width="80%" height="80%" /></td>
 						</tr>
 					</table>
 
 					<!-- Calcul de coût unitaire pondéré -->
 					<br>
-					<h4 id="cump">Calcul de coût unitaire pondéré</h4>
+					<h4 id="cump">Calcul de coût unitaire moyen pondéré</h4>
 
 					<!-- Stock initial -->
 					<br>
-					<h5>STOCK INITIAL</h5>
-					<table>
-						<tr>
-							<td colspan="2"><img src="img/stock initial.png" width="80%" height="80%" /></td>
-						</tr>
-						<tr>
-							<td width="75%">
-								<p>Vous devez en premier saisir un stock initial, puis cliquez sur le bouton de validation pour enregistrer la
-									ligne.</p>
-							</td>
-							<td><img src="img/coche valider.png" width="20%" height="20%" /></td>
-						</tr>
-						<tr>
-							<td colspan="2" class="text-warning">
-								<p>S'il n'y a pas de stock initial, saisissez des 0 pour chaque valeur.</p>
-							</td>
-						</tr>
-						<tr>
-							<td colspan="2"><img src="img/stock initial validé.png" width="80%" height="80%" /></td>
-						</tr>
-						<tr>
-					</table>
+						<h5>Stock initial</h5>
+						<table>
+							<tr>
+								<p>Dans un premier temps, il faut saisir la <strong>Quantité</strong> et le <strong>Coût Unitaire</strong> du <strong>Stock Initial</strong>. Pour un stock initial nul, saisir la valeur de 0 dans chaque champ. Pour enregistrer la ligne de stock initial, cliquer sur le bouton vert avec l’icône valider.</p>
+								<p style="text-align:center"><img src="img/coche valider.png" width="8%" height="8%"/></p>
+								<p style="text-align:center"><img src="img/stock initial validé.png" width="100%" height="80%"/></p>
+							</tr>
+						</table>
+						<br>
+						<h5>Nouvelle Entrée</h5>
+						</td>
+						<table>
+							<tr>
+								<td colspan="2">
+									<p>Pour saisir une entrée, cliquer sur le bouton <strong>+ Nouvelle entrée</strong>. Une ligne <strong>Entrée</strong> apparait. Saisir dans la colonne <strong>Entrée</strong>, la <strong>Quantité</strong> et le <strong>Coût Unitaire</strong> de la ligne.</p>
+									<p style="text-align:center"><img src="img/entrée.png" width="100%" height="80%"/></p>
+									<p>Il est possible de valider la ligne <strong>Entrée</strong> en cliquant sur le bouton vert avec l’icône valider ou supprimer la ligne <strong>Entrée</strong> en cliquant sur le bouton rouge avec l’icône poubelle. </p>
+									<p style="text-align:center"><img src="img/coche valider.png" width="8%" height="8%"/></p>
+									<p style="text-align:center"><img src="img/poubelle.png" width="8%" height="8%"/></p>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<p>Si les champs, <strong>Quantité</strong> et <strong>Coût Unitaire</strong>, de la colonne <strong>Entrée</strong>, non pas été complétés par des valeurs, la fenêtre nommée <strong>localhost indique</strong> signale le message suivant :  </p>
+									<p style="text-align:center"> <strong>« Veuillez compléter les champs de saisie avant de créer une nouvelle entrée. »</strong> </p>
+									<p style="text-align:center"><img src="img/erreur.png"/></p>
+								</td>
+							</tr>
+						</table>
 
-					<br>
-					<h5>ENTRÉE</h5>
-					</td>
-					<table>
+						<br>
+						<h5>Sortie</h5>
+						<table>
+							<tr>
+								<td colspan="2">
+									<p>Pour saisir une sortie, cliquer sur le bouton <strong>+ Nouvelle sortie</strong>. Une ligne <strong>Sortie</strong> apparait. Saisir dans la colonne <strong>Sortie</strong>, la <strong>Quantité</strong> et le <strong>Coût Unitaire</strong> de la ligne.</p>
+									<p style="text-align:center"><img src="img/sortie.png" width="100%" height="80%"/></p>
+									<p>Il est possible de valider la ligne Sortie en cliquant sur le bouton vert avec l’icône valider ou supprimer la ligne Entrée en cliquant sur le bouton rouge avec l’icône poubelle. </p>
+									<p style="text-align:center"><img src="img/coche valider.png" width="8%" height="8%"/></p>
+									<p style="text-align:center"><img src="img/poubelle.png" width="8%" height="8%"/></p>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<p>Si les champs, Quantité et Coût Unitaire, de la colonne Sortie, non pas été complétés par des valeurs, la fenêtre nommée localhost indique signale le message suivant : </p>
+									<p style="text-align:center"> <strong>« Veuillez compléter les champs de saisie avant de créer une nouvelle sortie. »</strong> </p>
+									<p style="text-align:center"><img src="img/erreur.png"/></p>
+								</td>
+							</tr>
+						</table>
+
+						<br>
+						<h5>Réinitialisation du tableau</h5>
+						<table>
+							<tr>
+								<td>
+									<p>Pour réinitialiser le tableau cliquez sur le bouton <strong>Réinitialiser</strong>.</p>
+									<p style="text-align:right"><img src="img/réinitialiser.png"/></p>
+								</td>
+							</tr>
+						</table>
+
+				<!-- Changer le mot de passe -->
+				<br>
+				<h3 id="password">Changement de mot de passe</h3>
+				<table>
 						<tr>
 							<td colspan="2">
-								<p>Pour saisir une entrée vous devez cliquer sur le bouton « + Nouvelle entrée ». </p>
-							</td>
-						</tr>
-						<tr>
-							<td width="35%">
-								<p>Une ligne de saisie apparaît. </p>
-								<p>Saisissez la « Quantité » et le « Coût Unitaire ». </p>
-								<p>Puis validez la ligne.</p>
-							</td>
-							<td><img src="img/coche valider.png" width="8%" height="8%" /></td>
-						</tr>
-						<tr>
-							<td colspan="2"><img src="img/entrée.png" width="80%" height="80%" /></td>
-						</tr>
-						<tr>
-							<td><img src="img/coche valider.png" width="16%" height="16%" /></td>
-							<td>
-								<p>Valider la ligne saisie.</p>
-							</td>
-						</tr>
-						<tr>
-							<td><img src="img/poubelle.png" width="16%" height="16%" /></td>
-							<td>
-								<p>Supprimer la ligne en cours de saisie ou la dernière ligne saisie</p>
+								<p>Pour changer votre mot de passe cliquez sur <strong>Password</strong> dans le menu du haut.</p>
+								<p style="text-align:center"><img src="img/changer password.png" width="100%" height="80%" /></p>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<p>Si vous cliquez sur l’un des boutons pour saisir une nouvelle ligne, le message suivant apparaîtra
-									pour vous signalez que vous devez sortir de la saisie soit en validant soit en supprimant la ligne
-									actuelle.</p>
-							</td>
-							<td><img src="img/erreur.png" /></td>
-						</tr>
-					</table>
-
-					<br>
-					<h5>SORTIE</h5>
-					<table>
-						<tr>
-							<td colspan="2">
-								<p>Pour saisir une sortie vous devez cliquer sur le bouton « + Nouvelle sortie ». </p>
+								<p>Afin d’éviter une quelconque erreur de saisie, une confirmation du mot de passe sera demandée. Cliquer sur le bouton <strong>Valider</strong>.</p>
+								<p style="text-align:center"><img src="img/bouton valider.png" /></p>
 							</td>
 						</tr>
-						<tr>
-							<td width="35%">
-								<p>Une ligne de saisie apparaît. </p>
-								<p>Saisissez la « Quantité » et le « Coût Unitaire ». </p>
-								<p>Puis validez la ligne</p>
-							</td>
-							<td><img src="img/coche valider.png" width="8%" height="8%" /></td>
-						</tr>
-						<tr>
-							<td colspan="2"><img src="img/sortie.png" width="80%" height="80%" /></td>
-						</tr>
-						<tr>
-							<td><img src="img/coche valider.png" width="16%" height="16%" /></td>
-							<td>
-								<p>Valider la ligne saisie.</p>
-							</td>
-						</tr>
-						<tr>
-							<td><img src="img/poubelle.png" width="16%" height="16%" /></td>
-							<td>
-								<p>Supprimer la ligne en cours de saisie ou la dernière ligne saisie</p>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<p>Si vous cliquez sur l’un des boutons pour saisir une nouvelle ligne, le message suivant apparaîtra
-									pour vous signalez que vous devez sortir de la saisie soit en validant soit en supprimant la ligne
-									actuelle.</p>
-							</td>
-							<td><img src="img/erreur.png" /></td>
-						</tr>
-					</table>
-
-					<br>
-					<h5>RÉINITIALISATION DU TABLEAU</h5>
-					<table>
-						<tr>
-							<td>
-								<p>Pour réinitialiser le tableau cliquez sur le bouton « Réinitialiser »</p>
-							</td>
-							<td><img src="img/réinitialiser.png" /></td>
-						</tr>
-					</table>
+				</table>
 
 
-					<!-- Changer le mot de passe -->
-					<br>
-					<h3 id="password">Changement de mot de passe</h3>
-					<table>
-						<tr>
-							<td colspan="2">
-								<p>Pour changer votre mot de passe cliquez sur « Mot de passe oublié » dans le menu du haut.</p>
-							</td>
-						</tr>
-						<tr>
-							<td colspan="2"><img src="img/changer password.png" width="80%" height="80%" /></td>
-						</tr>
-						<tr>
-							<td>
-								<p>Il vous est demandé de saisir deux fois votre nouveau mot de passe pour éviter les erreurs de saisie.</p>
-								<p>Puis cliquez sur le bouton « Valider ».</p>
-							</td>
-							<td><img src="img/bouton valider.png" /></td>
-						</tr>
-					</table>
-
-
-					<!-- Se déconnecter -->
-					<br>
-					<h3 id="quitte">Se déconnecter</h3>
-					<table>
+				<!-- Se déconnecter -->
+				<br>
+				<h3 id="quitte">Se déconnecter</h3>
+				<table>
 						<tr>
 							<td>
 								<p>Pour se déconnecter de l’application, cliquez sur le bouton le bouton en forme de porte : </p>
+								<p style="text-align:center"><img src="img/quitter.png" /></p>
 							</td>
-							<td><img src="img/quitter.png" /></td>
 						</tr>
-					</table>
+				</table>
+
+				<!-- Créateurs -->
+				<br>
+				<br>
+				<br>
+				<p style="text-align:center"><i>Projet réalisé par les winner : </i></p>
+				<p style="text-align:center"><i>Jean-François QUINQUIS, Ewen CLEMENT, Kevin TROCHON & Mathilde NYIKEINE.</i></p>
+				<p style="text-align:center"><i>Version 1.0 – Décembre 2021 – MIAGE Université de la Nouvelle-Caledonie.</i></p>
 			</div>
 		</div>
 	</div>

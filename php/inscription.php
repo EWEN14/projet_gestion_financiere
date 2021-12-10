@@ -51,7 +51,7 @@
 		<div class="row">
 			<nav class="navbar navbar-expand-sm bg-light navbar-light" style="background-color: #e3f2fd;">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="./index.php">Accueil</a>
+					<a class="navbar-brand" href="./index.php">Accueil </a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
 						<span class="navbar-toggler-icon"></span>
 					</button>
@@ -64,7 +64,7 @@
 
 	<div class="container">
 		<div class="row">
-			<h2 class="text-center text-secondary">Créer un compte</h2>
+			<h2 class="text-center text-secondary">Créer un compte </h2>
 		</div>
 	</div>
 
