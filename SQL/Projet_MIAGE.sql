@@ -30,6 +30,6 @@ CREATE TABLE seuil_renta_php (
 
 CREATE USER 'agent1'@'localhost' IDENTIFIED BY 'miage';
 
--- Accord de tous les droits sur la base de données.
+-- Accord de tous les droits sur la base de données. --
 GRANT ALL PRIVILEGES ON mejk_php.* TO 'agent1'@'localhost';
 FLUSH PRIVILEGES;

@@ -15,9 +15,9 @@
     <p>Bonjour, je sais toujours qui vous êtes : <?= $_SESSION['username'] ?> !!!</p>
 
     <?php if (is_admin()): ?>
-      <p>Bonjour, vous êtes un administrateur !!!</p>
+      <p>Bonjour, vous êtes un administrateur !</p>
     <?php endif; ?>
-    <a href="index.php?action=logout">Se déconnecté !!!</a>
+    <a href="index.php?action=logout">Se déconnecté !</a>
     <nav>
       <ul>
         <li>

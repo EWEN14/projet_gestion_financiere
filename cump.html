@@ -42,6 +42,7 @@
 
 </head>
 
+<!--Calcul de coût unitaire moyen pondéré.-->
 <body>
 	<div id="menu" class="container"></div>
 
@@ -55,6 +56,7 @@
 			</ul>
 		</nav>
 
+		<!-- Tableau de coût unitaire moyen pondéré. -->
 		<table class="table table-hover table-sm align-middle table-responsive-sm text-center text-secondary">
 			<thead class="thead-dark">
 				<tr>
@@ -79,6 +81,7 @@
 					<td>Montant</td>
 				</tr>
 
+				<!-- Stock Initial. -->
 				<tr id="l1">
 					<td class="align-middle">Stock Initial</td>
 					<td colspan="6"></td>
@@ -90,6 +93,7 @@
 					<td class="align-middle act" id="act_l1"><button class="btn btn-success valider">✔️</button></td>
 				</tr>
 
+				<!-- Ajout d'entrées et sorties. -->
 				<tr class="ajout">
 					<td></td>
 					<td class="new text-center" colspan="3"><button class="btn btn-warning" id="new-entree">➕ Nouvelle entrée</button></td>
@@ -102,6 +106,7 @@
 			</tbody>
 		</table>
 
+		<!-- Réinitialisation du tableau -->
 		<div class="reset-container">
 			<div id="reset">Réinitialiser 🔄</div>
 		</div>

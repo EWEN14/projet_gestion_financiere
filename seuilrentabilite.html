@@ -38,12 +38,14 @@
 
 </head>
 
+<!-- Sauvegarde du seuil de rentabilité. -->
 <body>
 	<div id="menu" class="container"></div>
 
 	<h2 class="text-center text-secondary">Seuil de rentabilité <img src="img/mejk-icon.png" /></h2>
 	<p class="text-center text-secondary"> <i>Calcul du seuil de rentabilité, en valeur et en volume.</i></p>
 
+	<!-- Barre de navigation calcul et sauvegarde du seuil de rentabilité. -->
 	<div class="container">
 		<nav>
 			<ul class="nav nav-tabs">
@@ -53,6 +55,7 @@
 			</ul>
 		</nav>
 
+		<!-- Saisi des valeurs des variables de Prix de Vente HT, le Chiffre d'Affaires, les Charges Variables et les Charges Fixes. -->
 		<table class="table table-hover table-sm align-middle table-responsive-sm">
 			<thead>
 				<tr>
@@ -68,18 +71,22 @@
 					<td><input type="number" class="entree form-control" name="pvht" id="pvht" aria-describedby="pvht"
 							placeholder="ex : 4000"></td>
 				</tr>
+
+				<!-- Saisi du Chiffre d'affaires. -->
 				<tr>
 					<th scope="row">Chiffre d'Affaires (CA)</th>
 					<td></td>
 					<td> <input type="number" class="entree form-control" name="ca" id="ca" aria-describedby="ca"
 							placeholder="ex : 250000"></td>
 				</tr>
+				<!-- Saisi des Charges Variables. -->
 				<tr>
 					<th scope="row">Charges Variables (CV)</th>
 					<td></td>
 					<td><input type="number" class="entree form-control" name="cv" id="cv" aria-describedby="cv"
 							placeholder="ex : 100000"></td>
 				</tr>
+				<!-- Calcul des Marges Sur Coût Variable (MSCV). -->
 				<tr class="table-warning text-secondary">
 					<th scope="row">Marges Sur Coût Variable (MSCV)</th>
 					<td>CA - CV</td>
@@ -88,6 +95,7 @@
 					</td>
 					<td></td>
 				</tr>
+				<!-- Calcul du Taux de Marges Sur Coût Variable (MSCV). -->
 				<tr class="table-warning text-secondary">
 					<th scope="row">Taux de Marge Sur Coût Variable (TMSCV)</th>
 					<td>MSCV / CA</td>
@@ -96,12 +104,14 @@
 					</td>
 					<td></td>
 				</tr>
+				<!-- Saisi des Charges Fixes. -->
 				<tr>
 					<th scope="row">Charges Fixes (CF)</th>
 					<td></td>
 					<td><input type="number" class="entree form-control" name="cf" id="cf" aria-describedby="cf"
 							placeholder="ex : 30000"></td>
 				</tr>
+				<!-- Calcul du Résultat. -->
 				<tr class="table-warning text-secondary">
 					<th scope="row">Résultat</th>
 					<td>MSCV - CF</td>
@@ -109,6 +119,7 @@
 						<div class="result-number" id="resultat"></div>
 					</td>
 				</tr>
+				<!-- Calcul du Seuil de Rentabilité en valeur (en val). -->
 				<tr class="table-warning text-secondary">
 					<th scope="row">Seuil de Rentabilité en valeur (SR val)</th>
 					<td>CF / TMSCV</td>
@@ -116,6 +127,7 @@
 						<div class="result-number" id="seuilvaleur"></div>
 					</td>
 				</tr>
+				<!-- Calcul du Seuil de Rentabilité en volume (en vol). -->
 				<tr class="table-warning text-secondary">
 					<th scope="row">Seuil de Rentabilité en volume (SR vol)</th>
 					<td>SR val / PV</td>
@@ -125,6 +137,7 @@
 				</tr>
 			</tbody>
 			<tfoot>
+				<!-- Bouton Calculer et Sauvegarder ce calcul. -->
 				<tr>
 					<th></th>
 					<td><button type="submit" class="btn btn-primary" id="calculer">Calculer 🖩</button></td>
