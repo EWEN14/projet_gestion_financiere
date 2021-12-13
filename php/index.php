@@ -52,17 +52,17 @@ if (isset($_POST['valid_connection'])) {
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 
 	<link href="../css/main.css" rel="stylesheet">
+	<link href="../css/navbar.css" rel="stylesheet">
 
 	<!-- Bootstrap core JS. -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
 	</script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
 	</script>
+
+	<script src="../js/jquery-3.6.0.min.js" rel="stylesheet"></script>
 	
 	<!-- Menu. -->
-	<link href="css/navbar.css" rel="stylesheet">
-	<script src="js/jquery-3.6.0.min.js" rel="stylesheet"></script>
-	
     <script> 
 		$(function(){
 		  $("#menu").load("./menu.html"); 
@@ -132,7 +132,7 @@ if (isset($_POST['valid_connection'])) {
 					<div class="col-lg-6 col-md-12 feature">
 						<a href="../seuilrentabilite.html">
 							<div class="feature-element">
-								<div><img class="icone" src="../img/sustainable.png"></div>
+								<div><img class="icone" src="../img/sustainable.png" alt="icône croissance économique"></div>
 								<div>Calcul de Seuil de Rentabilité</div>
 							</div>
 						</a>
@@ -141,7 +141,7 @@ if (isset($_POST['valid_connection'])) {
 					<div class="col-lg-6 col-md-12 feature">
 						<a href="../cump.html">
 							<div class="feature-element">
-								<div><img class="icone" src="../img/stock.png"></div>
+								<div><img class="icone" src="../img/stock.png" alt="icône monnaie"></div>
 								<div>Calcul du Coût Unitaire Moyen Pondéré</div>
 							</div>
 						</a>
